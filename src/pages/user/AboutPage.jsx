@@ -1,14 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaBalanceScale,
-  FaBuilding,
-  FaClipboardCheck,
-  FaHandshake,
-} from "react-icons/fa";
+// import {
+//   FaBalanceScale,
+//   FaBuilding,
+//   FaClipboardCheck,
+//   FaHandshake,
+// } from "react-icons/fa";
 import aboutImage from "../../assets/about/aboutImage.webp";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
+import OurAdvantages from "@/components/user/Home/OurAdvantages";
 
 const AboutPage = () => {
   
@@ -16,29 +17,29 @@ const AboutPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const StatisticItem = ({ item }) => {
-    return (
-      <div className="relative group h-full">
-        <div className="relative bg-white dark:bg-black p-8 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 hover:shadow-lg">
-          <div className="flex flex-col items-center">
-            <div>
-              <item.icon className="text-6xl mb-6 text-[#AC8968] dark:text-[#AC8968]" />
-            </div>
-            <h3 className="text-4xl font-bold mb-3 text-black dark:text-white">
-              <CountUp
-                end={item.value}
-                duration={2.5}
-                suffix={item.suffix || ""}
-              />
-            </h3>
-            <p className="text-xl text-gray-700 dark:text-gray-300 whitespace-nowrap">
-              {item.label}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // const StatisticItem = ({ item }) => {
+  //   return (
+  //     <div className="relative group h-full">
+  //       <div className="relative bg-white dark:bg-black p-8 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 hover:shadow-lg">
+  //         <div className="flex flex-col items-center">
+  //           <div>
+  //             <item.icon className="text-6xl mb-6 text-[#AC8968] dark:text-[#AC8968]" />
+  //           </div>
+  //           <h3 className="text-4xl font-bold mb-3 text-black dark:text-white">
+  //             <CountUp
+  //               end={item.value}
+  //               duration={2.5}
+  //               suffix={item.suffix || ""}
+  //             />
+  //           </h3>
+  //           <p className="text-xl text-gray-700 dark:text-gray-300 whitespace-nowrap">
+  //             {item.label}
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
@@ -61,7 +62,7 @@ const AboutPage = () => {
         <meta property="og:image" content={aboutImage} />
       </Helmet>
 
-      <div className="about-page md:py-40 py-36 bg-gray-50 dark:bg-gray-900">
+      <div className="about-page md:py-40 py-36 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           {/* Main About Section */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto mb-20">
@@ -109,9 +110,6 @@ const AboutPage = () => {
                 type: "spring",
                 stiffness: 50,
               }}
-              style={{
-                filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.15))",
-              }}
             >
               <motion.img
                 src={aboutImage}
@@ -124,7 +122,7 @@ const AboutPage = () => {
           </div>
 
           {/* Statistics Section */}
-          <section className="relative mx-auto mb-20">
+          {/* <section className="relative mx-auto mb-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -164,7 +162,9 @@ const AboutPage = () => {
                 ))}
               </div>
             </motion.div>
-          </section>
+          </section> */}
+
+          <OurAdvantages/>
 
           {/* Additional Info Section */}
           <AnimatePresence>

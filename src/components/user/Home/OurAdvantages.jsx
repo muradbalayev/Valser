@@ -49,7 +49,7 @@ const OurAdvantages = () => {
   ];
 
   return (
-    <section className="md:py-20 py-10 relative overflow-hidden bg-white dark:bg-black">
+    <section className="md:py-20 py-10 relative overflow-hidden  dark:bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,8 +58,8 @@ const OurAdvantages = () => {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-6">
-            Xidmətlərimiz
+          <h2 className="uppercase ordina-medium text-[#AC8968] text-3xl md:text-4xl font-bold dark:text-white mb-6">
+            NƏ EDİRİK?
           </h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Hüquq, mühasibatlıq və iş yerlərinin attestasiyası sahələrində peşəkar xidmətlər
@@ -77,7 +77,7 @@ const OurAdvantages = () => {
             >
               <div className="relative z-10 h-full bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 hover:border-black dark:hover:border-white transition-all duration-300">
                 {/* Icon container with black/white design */}
-                <div className="w-16 h-16 rounded-full bg-black dark:bg-white flex items-center justify-center text-white dark:text-black mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-full bg-red-800 dark:bg-white flex items-center justify-center text-white dark:text-black mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
 
@@ -100,14 +100,12 @@ const OurAdvantages = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-16"
         >
-          <motion.button
+          <button
             onClick={openModal}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-black dark:bg-white text-white dark:text-black font-medium px-10 py-3 transition-all duration-300 hover:opacity-90"
+            className="bg-red-800 hover:bg-red-900 dark:bg-white text-white dark:text-black font-medium px-10 py-3 transition-all duration-300 hover:opacity-90"
           >
-            Müraciət
-          </motion.button>
+            MÜRACİƏT
+          </button>
         </motion.div> 
       </div>
 

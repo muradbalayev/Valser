@@ -284,7 +284,7 @@ const ContactPage = () => {
                     disabled={isLoading}
                     type="submit"
                     className={`${isLoading && "cursor-not-allowed"
-                      } w-full bg-[#AC8968] text-white font-medium py-3 px-4 transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-[#AC8968]/30`}
+                      } w-full bg-red-800 hover:bg-red-900 dark:bg-white text-white font-medium py-3 px-4 transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-[#AC8968]/30`}
                   >
                     {isLoading ? (
                       <div className="flex w-full items-center justify-center gap-2">
