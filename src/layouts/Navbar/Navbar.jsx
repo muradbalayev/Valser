@@ -22,15 +22,17 @@ import {
   FaHandshake,
   FaCalculator,
 } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
   const { isDarkTheme } = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [active, setActive] = useState(null);
-  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHomePage, setIsHomePage] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const location = useLocation();
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
@@ -368,25 +370,47 @@ export default function Navbar() {
                       transition={{ delay: 0.1 }}
                       className="border-b border-gray-200 dark:border-gray-700 pb-6"
                     >
-                      <h3 className="text-lg font-semibold text-[#AC8968] mb-4">Xidmətlər</h3>
-                      <div className="space-y-3">
-                        {services.map((service, index) => (
-                          <motion.div
-                            key={service.id}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 + index * 0.05 }}
-                          >
-                            <Link
-                              onClick={toggleMenu}
-                              to={`/service/${service.slug}`}
-                              className="block py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-                            >
-                              {service.title}
-                            </Link>
-                          </motion.div>
-                        ))}
+                      <div 
+                        className="flex items-center justify-between cursor-pointer py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors mb-2"
+                        onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                      >
+                        <h3 className="text-lg font-semibold text-[#AC8968]">Xidmətlər</h3>
+                        <motion.div
+                          animate={{ rotate: servicesDropdownOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <FaChevronDown className="text-[#AC8968]" />
+                        </motion.div>
                       </div>
+                      
+                      <AnimatePresence>
+                        {servicesDropdownOpen && (
+                          <motion.div 
+                            className="space-y-3 pl-3 mt-2"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {services.map((service, index) => (
+                              <motion.div
+                                key={service.id}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.1 + index * 0.05 }}
+                              >
+                                <Link
+                                  onClick={toggleMenu}
+                                  to={`/service/${service.slug}`}
+                                  className="block py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                                >
+                                  {service.title}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </motion.div>
                     
                     <motion.div 
