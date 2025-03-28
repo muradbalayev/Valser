@@ -15,7 +15,7 @@ const Footer = () => {
   
   // Transform values for parallax effect - footer rises up as user scrolls down
   const footerY = useTransform(scrollYProgress, [0, 1], [100, 0]);
-  const footerOpacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
+  const footerOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
 
   return (
     <motion.footer
@@ -55,8 +55,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-b border-gray-800">
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Naviqasiya</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Naviqasiya</h3>
+            <ul className="space-y-2 sm:text-start text-center">
               <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Ana Səhifə</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Haqqımızda</Link></li>
               <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Xidmətlər</Link></li>
@@ -66,8 +66,8 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Xidmətlər</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Xidmətlər</h3>
+            <ul className="space-y-2 sm:text-start text-center">
               <li><Link to="/services/legal" className="text-gray-400 hover:text-white transition-colors">Hüquqi xidmətlər</Link></li>
               <li><Link to="/services/accounting" className="text-gray-400 hover:text-white transition-colors">Mühasibatlıq</Link></li>
               <li><Link to="/services/certification" className="text-gray-400 hover:text-white transition-colors">İş yerlərinin attestasiyası</Link></li>
@@ -76,8 +76,8 @@ const Footer = () => {
           
           {/* Social media */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Sosial Media</h3>
-            <div className="flex space-x-4">
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Sosial Media</h3>
+            <div className="flex sm:justify-start justify-center gap-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors">
                 <FaFacebook className="text-white" />
               </a>

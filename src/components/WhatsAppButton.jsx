@@ -23,7 +23,7 @@ const WhatsAppButton = () => {
       title="WhatsApp"
       rel="noopener noreferrer"
       aria-label='WhatsApp'
-      className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 bg-[#AC8968] text-white sm:p-4 p-3 rounded-full shadow-lg z-20 cursor-pointer hover:bg-green-600 transition-colors duration-300"
+      className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 bg-[#AC8968] text-white p-4  rounded-full shadow-lg z-20 cursor-pointer hover:bg-green-600 transition-colors duration-300"
       animate={{
         rotate: [0, 10, -10, 10, -10, 0],
       }}
@@ -33,7 +33,7 @@ const WhatsAppButton = () => {
         repeatDelay: 2,
       }}
     >
-      <FaWhatsapp className="text-xl sm:text-3xl" />
+      <FaWhatsapp className="text-2xl sm:text-3xl" />
     </motion.a>
   );
 };
