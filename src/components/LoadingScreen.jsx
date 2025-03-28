@@ -135,18 +135,20 @@ const LoadingScreen = () => {
                 {titleText2}
               </motion.span>
             </motion.div>
+            <div className="w-[130px] overflow-hidden absolute mb-14">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: .8, delay: 1.35, ease: [0.22, 1, 0.36, 1] }}
-              className="w-[100px] overflow-hidden absolute"
+              className="w-[130px] overflow-hidden"
             >
               <img
                 src={logo}
                 alt="logo"
                 className="w-full h-full object-contain"
-              />
+                />
             </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       )}

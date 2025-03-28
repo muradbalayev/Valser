@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import './App.css'
-import { ThemeContextProvider } from './context/ThemeContext'
 import RouterApp from './pages/RouterApp'
 import Lenis from 'lenis'
 
@@ -46,9 +45,7 @@ function App() {
 
   
   return (
-    <ThemeContextProvider>
       <RouterApp />
-    </ThemeContextProvider>
   )
 }
 

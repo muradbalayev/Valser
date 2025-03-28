@@ -14,7 +14,6 @@ export const store = configureStore({
     auth: authReducer,
     misc: miscReducer,
     blogs: blogReducer,
-   
     [miscApi.reducerPath]: miscApi.reducer,
     [vacanciesApi.reducerPath]: vacanciesApi.reducer,
     [applyVacancy.reducerPath]: applyVacancy.reducer,
