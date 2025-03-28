@@ -60,7 +60,7 @@ const LoadingScreen = () => {
     // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
-        const newProgress = prev + Math.floor(Math.random() * 8);
+        const newProgress = prev + Math.floor(Math.random() * 13);
         if (newProgress >= 100) {
           clearInterval(interval);
 

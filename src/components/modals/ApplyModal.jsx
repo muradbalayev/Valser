@@ -137,32 +137,32 @@ export default function ApplyModal({ isOpen, onClose }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ type: "spring", damping: 20 }}
-            className="apply-modal fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full max-w-lg mx-auto px-4 sm:px-0"
+            className="apply-modal fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full max-w-xl mx-auto px-4 sm:px-0"
           >
-            <div className="bg-white dark:bg-black rounded-lg shadow-2xl p-8 relative max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800">
+            <div className="bg-white dark:bg-black shadow-2xl sm:p-10 p-6 relative max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800">
               {/* Close button with animation */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
                 onClick={handleClose}
-                className="absolute right-6 top-6 text-black dark:text-white hover:text-red-800 dark:hover:text-red-800"
+                className="absolute sm:right-6 sm:top-6 right-4 top-4 text-black dark:text-white hover:text-red-800 dark:hover:text-red-800"
               >
                 <IoClose size={24} />
               </motion.button>
 
               {/* Header with black text */}
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-2 text-black dark:text-white ordina-medium uppercase">
+                <h2 className="sm:text-3xl text-2xl font-bold mb-2 text-red-800 dark:text-white ordina-medium ">
                   Müraciət Formu
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 sm:text-base text-sm">
                   Məlumatları doldurun, biz sizinlə əlaqə saxlayaq
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:text-base text-sm">
                 {/* Name Input */}
-                <div className="relative">
+                <div className="relative ">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FiUser className="h-5 w-5 text-gray-500 dark:text-gray-400" />
                   </div>
@@ -247,7 +247,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                   type="submit"
                   className={`${
                     isLoading && "cursor-not-allowed"
-                  } w-full bg-[#AC8968] text-white font-medium py-3 px-4 transition-all duration-300 hover:bg-[#8a6c50] uppercase`}
+                  } w-full bg-red-800 text-white font-medium py-3 px-4 transition-all duration-300 hover:bg-[#8a6c50] uppercase`}
                 >
                   {isLoading ? (
                     <div className="flex w-full items-center justify-center gap-2">

@@ -245,7 +245,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center justify-center gap-2"> 
                 <button
                 onClick={openModal}
-                className={` apply-btn uppercase text-white dark:text-black bg-[#AC8968] cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
+                className={` apply-btn uppercase text-white dark:text-black bg-red-800 cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
               >
                 Müraciət
               </button>
@@ -337,7 +337,7 @@ export default function Navbar() {
               </li>
               <li
                 onClick={openModal}
-                className={`apply-btn uppercase text-white dark:text-black bg-[#AC8968] block cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
+                className={`apply-btn uppercase text-white dark:text-black bg-red-800 hover:bg-red-900 block cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
               >
                 Müraciət
               </li>
@@ -467,7 +467,7 @@ export default function Navbar() {
                           openModal();
                           toggleMenu();
                         }}
-                        className="w-full py-3 px-4 bg-[#AC8968] text-white hover:bg-[#97775a] transition-colors"
+                        className="w-full py-3 px-4 bg-red-800 text-white hover:bg-red-900 transition-colors"
                       >
                         Müraciət
                       </button>
