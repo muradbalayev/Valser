@@ -68,9 +68,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Xidmətlər</h3>
             <ul className="space-y-2 sm:text-start text-center">
-              <li><Link to="/services/legal" className="text-gray-400 hover:text-white transition-colors">Hüquqi xidmətlər</Link></li>
-              <li><Link to="/services/accounting" className="text-gray-400 hover:text-white transition-colors">Mühasibatlıq</Link></li>
-              <li><Link to="/services/certification" className="text-gray-400 hover:text-white transition-colors">İş yerlərinin attestasiyası</Link></li>
+              <li><Link to="/service/huquqi-musayiet" className="text-gray-400 hover:text-white transition-colors">Hüquqi müşayiəti</Link></li>
+              <li><Link to="/service/muqavilelerin-hazirlanmasi" className="text-gray-400 hover:text-white transition-colors">Müqavilələrin hazırlanması</Link></li>
+              <li><Link to="/service/emek-munasibetleri" className="text-gray-400 hover:text-white transition-colors">Əmək münasibətlərinin tənzimlənməsi</Link></li>
+              <li><Link to="/service/mehkeme-temsilciliyi" className="text-gray-400 hover:text-white transition-colors">Məhkəmə və arbitraj işlərində təmsilçilik</Link></li>
+              <li><Link to="/service/korporativ-huquq" className="text-gray-400 hover:text-white transition-colors">Korporativ hüquq</Link></li>
+              <li><Link to="/service/muhasibatliq-xidmetleri" className="text-gray-400 hover:text-white transition-colors">Mühasibatlıq xidmətləri</Link></li>
             </ul>
           </div>
           
@@ -92,7 +95,7 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="flex sm:flex-row flex-col items-center justify-between text-center text-gray-400 mt-8 pt-8 ">
+        <div className="flex sm:flex-row flex-col items-center justify-between text-center text-gray-400 my-8 pt-8 ">
           <p>
             &copy; {new Date().getFullYear()} Valser MMC. Bütün hüquqlar qorunur.
           </p>
