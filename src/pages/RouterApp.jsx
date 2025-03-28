@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import {  useState, useEffect } from "react";
 import { IoArrowUpOutline } from "react-icons/io5";
 import HomePage from "./user/HomePage";
 import UserLayout from "@/layouts/UserLayout";
-import { ThemeContext } from "@/context/ThemeContext";
 import ContactPage from "./user/ContactPage";
 import AboutPage from "./user/AboutPage";
 
@@ -19,7 +18,6 @@ import LoadingScreen from "@/components/LoadingScreen";
 import ServicePage from "./user/ServicePage";
 
 const RouterApp = () => {
-  const { isDarkTheme } = useContext(ThemeContext);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
 
@@ -86,9 +84,7 @@ const RouterApp = () => {
 
   return (
     <div
-      className={`bg-[#f4f6fa] dark:bg-gray-900 min-h-screen relative ${
-        isDarkTheme ? "dark" : ""
-      }`}
+      className={`bg-[#f4f6fa] dark:bg-gray-900 min-h-screen relative `}
     >
       {!isAdminRoute && !isMobile && <LoadingScreen />}
       {!isAdminRoute && <WhatsAppButton />}

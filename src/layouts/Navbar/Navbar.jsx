@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import {  useEffect, useState } from "react";
 import {
   FaInstagram,
   FaLinkedin,
@@ -12,6 +11,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import darkLogo from "../../assets/logos/valsertextBlack.png";
 import whiteLogo from "../../assets/logos/valsertextWhite.png";
+import logo from "../../assets/logos/logoWhite.png";
+import logoBlack from "../../assets/logos/logoBlack.png";
 import ApplyModal from "@/components/modals/ApplyModal";
 import { RiCloseLargeFill } from "react-icons/ri";
 import {
@@ -25,7 +26,6 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
-  const { isDarkTheme } = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [active, setActive] = useState(null);
@@ -124,19 +124,33 @@ export default function Navbar() {
         <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto xl:px-14 lg:px-10 sm:px-4 px-3 py-2">
           <Link
             to="/"
-            className="lg:w-44 lg:h-14 min-880:w-36 min-880:h-12 w-40 h-16"
+            className="sm:block hidden lg:w-44 lg:h-14 min-880:w-36 min-880:h-12 w-40 h-16"
           >
             <img
               src={
                 !isScrolled && isHomePage && !isMenuOpen
                   ? whiteLogo
-                  : isDarkTheme
-                  ? whiteLogo
                   : darkLogo
               }
               alt="logo"
-              className="w-full h-full object-contain"
+              className=" w-full h-full object-contain"
             />
+              
+          </Link>
+          <Link
+            to="/"
+            className="sm:hidden block w-14 h-12 pl-4"
+          >
+          <img
+              src={
+                !isScrolled && isHomePage && !isMenuOpen
+                  ? logo
+                  : logoBlack
+              }
+              alt="logo"
+              className=" w-full h-full object-contain"
+            />
+              
           </Link>
 
           {/* Icons Place */}
