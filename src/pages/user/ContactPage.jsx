@@ -81,7 +81,7 @@ const ContactPage = () => {
         },
         customClass: {
           confirmButton:
-            "px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#AC8968]/30",
+            "px-6 py-2.5  text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#AC8968]/30",
         },
       });
 
@@ -183,7 +183,7 @@ const ContactPage = () => {
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-black p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-black p-8  border border-gray-200 dark:border-gray-800 shadow-lg">
                 <div>
                   <label
                     htmlFor="name"
@@ -199,7 +199,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     placeholder="Ad Soyad"
                     required
-                    className="mt-1 outline-none border py-2 px-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                    className="mt-1 outline-none border py-2 px-3 block w-full border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   />
                 </div>
 
@@ -218,7 +218,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     placeholder="E-mail ünvanınız"
                     required
-                    className="mt-1 outline-none border py-2 px-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                    className="mt-1 outline-none border py-2 px-3 block w-full border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   />
                 </div>
 
@@ -239,7 +239,7 @@ const ContactPage = () => {
                     pattern="[0-9]{10}"
                     maxLength="10"
                     required
-                    className="mt-1 outline-none border py-2 px-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                    className="mt-1 outline-none border py-2 px-3 block w-full border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   />
                 </div>
 
@@ -284,7 +284,7 @@ const ContactPage = () => {
                     disabled={isLoading}
                     type="submit"
                     className={`${isLoading && "cursor-not-allowed"
-                      } w-full bg-[#AC8968] text-white font-medium py-3 px-4 rounded-md transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-[#AC8968]/30`}
+                      } w-full bg-[#AC8968] text-white font-medium py-3 px-4 transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-[#AC8968]/30`}
                   >
                     {isLoading ? (
                       <div className="flex w-full items-center justify-center gap-2">
@@ -299,7 +299,7 @@ const ContactPage = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-white dark:bg-black p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
+              <div className="bg-white dark:bg-black p-8  border border-gray-200 dark:border-gray-800 shadow-lg">
                 <h2 className="text-2xl font-semibold mb-6 text-[#AC8968] dark:text-[#AC8968]">
                   Əlaqə Məlumatları
                 </h2>
@@ -326,7 +326,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg">
+              <div className="w-full h-80  overflow-hidden shadow-lg">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24304.85733909328!2d49.83367032646481!3d40.39738499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d7c3df5e7e1%3A0x1c35c11e0bea6430!2sN%C9%99rimanov%2C%20Baku%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1711633004254!5m2!1sen!2s"
                   width="100%"

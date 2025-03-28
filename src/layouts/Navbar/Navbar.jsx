@@ -453,9 +453,9 @@ export default function Navbar() {
                           openModal();
                           toggleMenu();
                         }}
-                        className="w-full py-3 px-4 bg-[#AC8968] text-white rounded-md hover:bg-[#97775a] transition-colors"
+                        className="w-full py-3 px-4 bg-[#AC8968] text-white hover:bg-[#97775a] transition-colors"
                       >
-                        Müraciət Et
+                        Müraciət
                       </button>
                     </motion.div>
                     

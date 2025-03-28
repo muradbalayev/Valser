@@ -172,7 +172,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     value={data.fullName}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 outline-none rounded-md border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
                     placeholder="Ad və Soyadınız"
                   />
                 </div>
@@ -188,7 +188,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     value={data.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 outline-none rounded-md border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
                     placeholder="E-mail ünvanınız"
                   />
                 </div>
@@ -206,7 +206,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     required
                     pattern="[0-9]{10}"
                     maxLength="10"
-                    className="w-full pl-10 pr-4 py-3 outline-none rounded-md border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
                     placeholder="(055) 000 00 00"
                   />
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">
@@ -224,7 +224,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     value={data.applicationCategory}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 outline-none rounded-md border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white appearance-none transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white appearance-none transition-all duration-200"
                   >
                     <option value="" disabled>
                       Xidməti seçin
@@ -247,7 +247,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                   type="submit"
                   className={`${
                     isLoading && "cursor-not-allowed"
-                  } w-full bg-[#AC8968] text-white font-medium py-3 px-4 rounded-md transition-all duration-300 hover:bg-[#8a6c50] uppercase`}
+                  } w-full bg-[#AC8968] text-white font-medium py-3 px-4 transition-all duration-300 hover:bg-[#8a6c50] uppercase`}
                 >
                   {isLoading ? (
                     <div className="flex w-full items-center justify-center gap-2">
