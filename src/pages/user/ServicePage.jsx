@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -22,6 +22,11 @@ import { Helmet } from "react-helmet";
 export default function ServicePage() {
   const { serviceSlug } = useParams();
   const [openSyllabus, setOpenSyllabus] = useState({});
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Static array of legal services with detailed information
   const services = [

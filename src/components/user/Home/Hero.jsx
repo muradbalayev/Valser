@@ -55,7 +55,7 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="w-full  mb-8 lg:mb-0">
             <motion.h1
-              className="uppercase text-white text-4xl md:text-5xl lg:text-7xl hero-title text-center mb-6 sm:mt-0 mt-10 leading-tight"
+              className="uppercase text-white text-4xl md:text-5xl lg:text-7xl hero-title text-center mb-10  leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

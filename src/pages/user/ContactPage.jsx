@@ -1,6 +1,6 @@
 import { useCourseApplyMutation } from "@/redux/misc/courseApplyApi";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBuilding } from "react-icons/fa";
@@ -9,6 +9,11 @@ import Swal from "sweetalert2";
 
 const ContactPage = () => {
   const [courseApply, { isLoading }] = useCourseApplyMutation();
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const serviceOptions = [
     { value: "legal", label: "Hüquqi xidmətlər" },

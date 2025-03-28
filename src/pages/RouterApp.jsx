@@ -23,6 +23,27 @@ const RouterApp = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if the device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   const scrollToTop = () => {
@@ -69,7 +90,7 @@ const RouterApp = () => {
         isDarkTheme ? "dark" : ""
       }`}
     >
-      {!isAdminRoute && <LoadingScreen />}
+      {!isAdminRoute && !isMobile && <LoadingScreen />}
       {!isAdminRoute && <WhatsAppButton />}
       <Toaster
         containerClassName="toast "

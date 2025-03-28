@@ -81,7 +81,7 @@ const About = () => {
         {/* About Valser MMC Section */}
         <div 
           ref={aboutSectionRef}
-          className="flex flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto mb-20"
+          className="sm:flex hidden flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto mb-20"
         >
           {/* Text Content */}
           <motion.div
@@ -131,7 +131,37 @@ const About = () => {
             />
           </motion.div>
         </div>
+        <div 
+          className="sm:hidden flex flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto mb-20"
+        >
+          {/* Text Content */}
+          <div
+            className="w-full"
+          >
+            <h2 className="ordina-medium text-center uppercase text-3xl md:text-4xl font-bold text-[#AC8968] dark:text-white mb-6">
+              Haqqımızda
+            </h2>
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6">
+             <b>Valser MMC</b> - hüquq, mühasibatlıq və iş yerlərinin attestasiyası sahələrində ixtisaslaşmış,
+              yerli qanunvericiliyə əsaslanan xidmətlər göstərən peşəkar şirkətdir.
+            </p>
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+             <b>Məqsədimiz</b> - müəssisələrin və sahibkarların fəaliyyətini hüquqi, maliyyə və əməyin mühafizəsi
+              baxımından dayanıqlı və etibarlı şəkildə qurmasına dəstək olmaqdır.
+            </p>
+          </div>
 
+          {/* Image with scroll animation */}
+          <div 
+            className="lg:w-[30%] h-[500px] overflow-hidden shadow-lg"
+          >
+            <img 
+              src={aboutImage} 
+              alt="Valser MMC" 
+              className="w-full h-full object-cover transition-all duration-1000"
+            />
+          </div>
+        </div>
         {/* Statistics Section */}
         <section className="relative mx-auto">
           <motion.div
@@ -183,7 +213,7 @@ const About = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto mt-20 bg-white dark:bg-black p-8 rounded-lg border border-gray-200 dark:border-gray-800"
         >
-          <h3 className="uppercase text-2xl font-bold text-[#AC8968] dark:text-white mb-6">
+          <h3 className="sm:text-start text-center uppercase text-2xl font-bold text-[#AC8968] dark:text-white mb-6">
             İş Yerlərinin Attestasiyası
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
