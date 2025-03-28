@@ -46,17 +46,17 @@ const RouterApp = () => {
 
   const scrollToTop = () => {
     // Use the Lenis instance if available, otherwise fallback to standard scrollTo
-    if (window.lenis) {
-      window.lenis.scrollTo(0, { 
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Match the same easing as defined in App.jsx
-      });
-    } else {
+    // if (window.lenis) {
+    //   window.lenis.scrollTo(0, { 
+    //     duration: 1.2,
+    //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Match the same easing as defined in App.jsx
+    //   });
+    // } else {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
-    }
+    // }
   };
 
   useEffect(() => {

@@ -11,8 +11,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import darkLogo from "../../assets/logos/valsertextBlack.png";
 import whiteLogo from "../../assets/logos/valsertextWhite.png";
-import logo from "../../assets/logos/logoWhite.png";
-import logoBlack from "../../assets/logos/logoBlack.png";
+// import logo from "../../assets/logos/logoWhite.png";
+// import logoBlack from "../../assets/logos/logoBlack.png";
 import ApplyModal from "@/components/modals/ApplyModal";
 import { RiCloseLargeFill } from "react-icons/ri";
 import {

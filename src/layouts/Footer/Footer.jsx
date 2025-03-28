@@ -92,8 +92,21 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="pt-8 text-center text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Valser MMC. Bütün hüquqlar qorunur.</p>
+        <div className="flex sm:flex-row flex-col items-center justify-between text-center text-gray-400 mt-8 pt-8 ">
+          <p>
+            &copy; {new Date().getFullYear()} Valser MMC. Bütün hüquqlar qorunur.
+          </p>
+          <p className="mt-2">
+            Designed and developed by {' '}
+            <a 
+              href="https://muradbalazada.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#AC8968] hover:text-[#8a6c50] transition-colors"
+            >
+              Murad Balazada
+            </a>
+          </p>
         </div>
       </div>
     </motion.footer>

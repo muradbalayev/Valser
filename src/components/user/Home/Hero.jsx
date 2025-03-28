@@ -18,20 +18,28 @@ export default function HeroSection() {
 
   
 
+  // const scrollToAbout = () => {
+  //   const aboutSection = document.getElementById("about");
+  //   if (window.lenis) {
+  //     window.lenis.scrollTo(aboutSection.offsetTop, { 
+  //       duration: 1.4,
+  //       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Match the same easing as defined in App.jsx
+  //     });
+  //   } else {
+  //     window.scrollTo({
+  //       top: 0,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
+
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById("about");
-    if (window.lenis) {
-      window.lenis.scrollTo(aboutSection.offsetTop, { 
-        duration: 1.4,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Match the same easing as defined in App.jsx
-      });
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+    const aboutSection = document.getElementById("about"); // Make sure this ID matches the About 
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
 
   return (
     <section ref={sectionRef} className="relative lg:pt-0 pt-20 min-h-screen flex items-center justify-center overflow-hidden">
