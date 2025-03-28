@@ -124,7 +124,7 @@ export default function Navbar() {
         <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto xl:px-14 lg:px-10 sm:px-4 px-3 py-2">
           <Link
             to="/"
-            className="sm:block hidden lg:w-44 lg:h-14 min-880:w-36 min-880:h-12 w-40 h-16"
+            className=" lg:w-44 lg:h-14 min-880:w-36 min-880:h-12 w-40 h-16"
           >
             <img
               src={
@@ -137,7 +137,7 @@ export default function Navbar() {
             />
               
           </Link>
-          <Link
+          {/* <Link
             to="/"
             className="sm:hidden block w-14 h-12 pl-4"
           >
@@ -151,7 +151,7 @@ export default function Navbar() {
               className=" w-full h-full object-contain"
             />
               
-          </Link>
+          </Link> */}
 
           {/* Icons Place */}
           {/* <div className="min-1200:flex hidden justify-center gap-2 pt-1">
