@@ -1,238 +1,155 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
   FaBalanceScale,
   FaBuilding,
   FaFileContract,
-  FaGavel,
-  FaHandshake,
-  FaCalculator,
   FaCheckCircle,
   FaUsers,
   FaShieldAlt,
   FaClock,
   FaChartLine,
   FaUserTie,
+  FaHandshake,
   FaArrowRight as ArrowRight
 } from "react-icons/fa";
 import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet";
+import { LanguageContext } from "@/context/languageContext";
+import translations from "../../translations.json";
 
 export default function ServicePage() {
   const { serviceSlug } = useParams();
   const [openSyllabus, setOpenSyllabus] = useState({});
+  const { language } = useContext(LanguageContext);
 
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Static array of legal services with detailed information
+  // Static array of services with detailed information
   const services = [
     {
       id: 1,
-      title: "Müəssisələrin hüquqi müşayiəti",
-      description: "Müəssisənizin hüquqi məsələlərində peşəkar dəstək və müşayiət xidmətləri.",
-      fullDescription: "Müəssisənizin fəaliyyəti zamanı qarşılaşa biləcəyi bütün hüquqi məsələlərdə dəstək və müşayiət xidmətləri təqdim edirik. Bu xidmət çərçivəsində müəssisənizin fəaliyyətinin qanunvericiliyə uyğunluğunu təmin edir, hüquqi risklərini qiymətləndirir və onların qarşısını almaq üçün tədbirlər görürük.",
+      title: translations[language]["service-1"],
+      description: translations[language]["service-1-desc"],
+      fullDescription: translations[language]["service-1-full-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "huquqi-musayiet",
+      slug: "attestasiya",
       benefits: [
-        "Hüquqi risklərin qiymətləndirilməsi və idarə edilməsi",
-        "Daxili sənədlərin hüquqi ekspertizası",
-        "Müəssisənin qeydiyyatı və yenidən təşkili",
-        "Lisenziya və icazələrin alınması",
-        "Hüquqi məsləhətləşmələr"
+        translations[language]["service-1-benefit-1"],
+        translations[language]["service-1-benefit-2"],
+        translations[language]["service-1-benefit-3"],
+        translations[language]["service-1-benefit-4"],
+        translations[language]["service-1-benefit-5"]
       ],
       process: [
         {
-          title: "İlkin konsultasiya",
-          description: "Müəssisənizin fəaliyyət sahəsi və hüquqi ehtiyacları müəyyənləşdirilir."
+          title: translations[language]["service-1-process-1-title"],
+          description: translations[language]["service-1-process-1-desc"]
         },
         {
-          title: "Hüquqi audit",
-          description: "Mövcud sənədləşmə və prosedurların qanunvericiliyə uyğunluğu yoxlanılır."
+          title: translations[language]["service-1-process-2-title"],
+          description: translations[language]["service-1-process-2-desc"]
         },
         {
-          title: "Fəaliyyət planı",
-          description: "Aşkar edilmiş problemlərin həlli üçün fəaliyyət planı hazırlanır."
+          title: translations[language]["service-1-process-3-title"],
+          description: translations[language]["service-1-process-3-desc"]
         },
         {
-          title: "Davamlı hüquqi dəstək",
-          description: "Müəssisənin gündəlik fəaliyyətində hüquqi dəstək təmin edilir."
+          title: translations[language]["service-1-process-4-title"],
+          description: translations[language]["service-1-process-4-desc"]
         }
       ],
-      tags: ["Hüquqi audit", "Korporativ hüquq", "Lisenziyalaşdırma", "Hüquqi məsləhət", "Risk idarəetməsi"]
+      tags: [
+        translations[language]["service-1-tag-1"], 
+        translations[language]["service-1-tag-2"], 
+        translations[language]["service-1-tag-3"], 
+        translations[language]["service-1-tag-4"], 
+        translations[language]["service-1-tag-5"]
+      ]
     },
     {
       id: 2,
-      title: "Müqavilələrin hazırlanması və hüquqi ekspertizası",
-      description: "Müqavilələrin hazırlanması və mövcud müqavilələrin hüquqi ekspertizası.",
-      fullDescription: "Biznes fəaliyyətiniz üçün lazım olan bütün növ müqavilələrin hazırlanması və mövcud müqavilələrin hüquqi ekspertizasını həyata keçiririk. Müqavilələrinizin qanunvericiliyə uyğunluğunu təmin edir, hüquqlarınızı qoruyur və potensial riskləri minimuma endiririk.",
+      title: translations[language]["service-2"],
+      description: translations[language]["service-2-desc"],
+      fullDescription: translations[language]["service-2-full-desc"],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muqavilelerin-hazirlanmasi",
+      slug: "muhasibatliq",
       benefits: [
-        "Fərdi tələblərə uyğun müqavilələrin hazırlanması",
-        "Mövcud müqavilələrin hüquqi ekspertizası",
-        "Potensial risklərin aşkarlanması və aradan qaldırılması",
-        "Müqavilə şərtlərinin müzakirəsi və razılaşdırılması",
-        "Beynəlxalq müqavilələrin hazırlanması"
+        translations[language]["service-2-benefit-1"],
+        translations[language]["service-2-benefit-2"],
+        translations[language]["service-2-benefit-3"],
+        translations[language]["service-2-benefit-4"],
+        translations[language]["service-2-benefit-5"]
       ],
       process: [
         {
-          title: "Ehtiyacların müəyyənləşdirilməsi",
-          description: "Müqavilənin məqsədi və əsas şərtləri müəyyənləşdirilir."
+          title: translations[language]["service-2-process-1-title"],
+          description: translations[language]["service-2-process-1-desc"]
         },
         {
-          title: "Müqavilə layihəsinin hazırlanması",
-          description: "Tələblərə uyğun müqavilə layihəsi hazırlanır."
+          title: translations[language]["service-2-process-2-title"],
+          description: translations[language]["service-2-process-2-desc"]
         },
         {
-          title: "Hüquqi ekspertiza",
-          description: "Müqavilənin qanunvericiliyə uyğunluğu və risklər qiymətləndirilir."
+          title: translations[language]["service-2-process-3-title"],
+          description: translations[language]["service-2-process-3-desc"]
         },
         {
-          title: "Yekun redaktə və təsdiq",
-          description: "Müqavilə yekun redaktə edilir və təsdiqlənir."
+          title: translations[language]["service-2-process-4-title"],
+          description: translations[language]["service-2-process-4-desc"]
         }
       ],
-      tags: ["Müqavilə hüququ", "Hüquqi ekspertiza", "Kommersiya müqavilələri", "Beynəlxalq müqavilələr", "Risk qiymətləndirməsi"]
+      tags: [
+        translations[language]["service-2-tag-1"], 
+        translations[language]["service-2-tag-2"], 
+        translations[language]["service-2-tag-3"], 
+        translations[language]["service-2-tag-4"], 
+        translations[language]["service-2-tag-5"]
+      ]
     },
     {
       id: 3,
-      title: "Əmək münasibətlərinin tənzimlənməsi",
-      description: "Əmək münasibətlərinin qanunvericiliyə uyğun şəkildə tənzimlənməsi xidmətləri.",
-      fullDescription: "Əmək münasibətlərinin qanunvericiliyə uyğun şəkildə tənzimlənməsi, əmək müqavilələrinin hazırlanması, daxili əmək qaydalarının tərtib edilməsi və əmək mübahisələrinin həlli kimi xidmətlər göstəririk.",
-      icon: <FaHandshake className="w-12 h-12" />,
-      slug: "emek-munasibetleri",
-      benefits: [
-        "Əmək müqavilələrinin hazırlanması",
-        "Daxili əmək qaydalarının tərtib edilməsi",
-        "Əmək mübahisələrinin həlli",
-        "İşçilərin işə qəbulu və işdən azad edilməsi prosedurlarının təşkili",
-        "Əmək qanunvericiliyinə uyğunluğun təmin edilməsi"
-      ],
-      process: [
-        {
-          title: "Mövcud vəziyyətin analizi",
-          description: "Şirkətin əmək münasibətləri sahəsində mövcud vəziyyəti analiz edilir."
-        },
-        {
-          title: "Sənədləşmənin hazırlanması",
-          description: "Əmək müqavilələri və daxili əmək qaydaları hazırlanır."
-        },
-        {
-          title: "Prosedurların təkmilləşdirilməsi",
-          description: "İşə qəbul və işdən azad etmə prosedurları təkmilləşdirilir."
-        },
-        {
-          title: "Mübahisələrin həlli",
-          description: "Əmək mübahisələrinin həlli."
-        }
-      ],
-      tags: ["Əmək hüququ", "Əmək müqavilələri", "Daxili əmək qaydaları", "Əmək mübahisələri", "Kadr idarəetməsi"]
-    },
-    {
-      id: 4,
-      title: "Məhkəmə və arbitraj işlərində təmsilçilik",
-      description: "Məhkəmə və arbitraj proseslərində peşəkar hüquqi təmsilçilik xidmətləri.",
-      fullDescription: "Məhkəmə və arbitraj proseslərində maraqlarınızı təmsil edir, iddia ərizələrinin hazırlanması, sübutların toplanması və təqdim edilməsi, məhkəmə proseslərində iştirak və məhkəmə qərarlarının icrasının təmin edilməsi kimi xidmətlər göstəririk.",
-      icon: <FaGavel className="w-12 h-12" />,
-      slug: "mehkeme-temsilciliyi",
-      benefits: [
-        "Peşəkar hüquqi təmsilçilik",
-        "İddia ərizələrinin hazırlanması",
-        "Sübutların toplanması və təqdim edilməsi",
-        "Məhkəmə proseslərində iştirak",
-        "Məhkəmə qərarlarının icrasının təmin edilməsi"
-      ],
-      process: [
-        {
-          title: "İşin qiymətləndirilməsi",
-          description: "Mübahisənin mahiyyəti və perspektivləri qiymətləndirilir."
-        },
-        {
-          title: "Strategiyanın hazırlanması",
-          description: "İşin uğurla həlli üçün hüquqi strategiya hazırlanır."
-        },
-        {
-          title: "Sənədlərin hazırlanması",
-          description: "İddia ərizəsi və digər prosessual sənədlər hazırlanır."
-        },
-        {
-          title: "Məhkəmə prosesində təmsilçilik",
-          description: "Məhkəmə və ya arbitraj prosesində maraqlarınız təmsil olunur."
-        }
-      ],
-      tags: ["Məhkəmə təmsilçiliyi", "Arbitraj", "Mülki mübahisələr", "Kommersiya mübahisələri", "İddia ərizələri"]
-    },
-    {
-      id: 5,
-      title: "Korporativ hüquq və vergi hüququ sahəsində məsləhətlər",
-      description: "Korporativ və vergi hüququ sahəsində peşəkar məsləhət xidmətləri.",
-      fullDescription: "Korporativ və vergi hüququ sahəsində peşəkar məsləhət xidmətləri təqdim edirik. Şirkətlərin qeydiyyatı, yenidən təşkili, birləşməsi və bölünməsi, səhmdarların hüquqlarının qorunması, vergi planlaması və vergi mübahisələrinin həlli kimi məsələlərdə dəstək göstəririk.",
+      title: translations[language]["service-3"],
+      description: translations[language]["service-3-desc"],
+      fullDescription: translations[language]["service-3-full-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "korporativ-huquq",
+      slug: "huquqi-xidmetler",
       benefits: [
-        "Şirkətlərin qeydiyyatı və yenidən təşkili",
-        "Səhmdarların hüquqlarının qorunması",
-        "Korporativ idarəetmə strukturunun təkmilləşdirilməsi",
-        "Vergi planlaması və optimallaşdırılması",
-        "Vergi mübahisələrinin həlli"
+        translations[language]["service-3-benefit-1"],
+        translations[language]["service-3-benefit-2"],
+        translations[language]["service-3-benefit-3"],
+        translations[language]["service-3-benefit-4"],
+        translations[language]["service-3-benefit-5"]
       ],
       process: [
         {
-          title: "Vəziyyətin analizi",
-          description: "Şirkətin korporativ və vergi vəziyyəti analiz edilir."
+          title: translations[language]["service-3-process-1-title"],
+          description: translations[language]["service-3-process-1-desc"]
         },
         {
-          title: "Hüquqi məsləhətləşmə",
-          description: "Korporativ və vergi məsələləri üzrə hüquqi məsləhətlər verilir."
+          title: translations[language]["service-3-process-2-title"],
+          description: translations[language]["service-3-process-2-desc"]
         },
         {
-          title: "Strategiyanın hazırlanması",
-          description: "Korporativ və vergi strategiyası hazırlanır."
+          title: translations[language]["service-3-process-3-title"],
+          description: translations[language]["service-3-process-3-desc"]
         },
         {
-          title: "Tətbiq və nəzarət",
-          description: "Strategiyanın tətbiqi və nəticələrin monitorinqi həyata keçirilir."
+          title: translations[language]["service-3-process-4-title"],
+          description: translations[language]["service-3-process-4-desc"]
         }
       ],
-      tags: ["Korporativ hüquq", "Vergi hüququ", "Şirkət qeydiyyatı", "Vergi planlaması", "Səhmdarların hüquqları"]
-    },
-    {
-      id: 6,
-      title: "Mühasibatlıq xidmətləri",
-      description: "Peşəkar mühasibatlıq və maliyyə hesabatları xidmətləri.",
-      fullDescription: "Peşəkar mühasibatlıq və maliyyə hesabatları xidmətləri təqdim edirik. Mühasibat uçotunun aparılması, maliyyə hesabatlarının hazırlanması, vergi bəyannamələrinin tərtib edilməsi və təqdim olunması, əmək haqqı hesablamaları və digər mühasibatlıq xidmətləri göstəririk.",
-      icon: <FaCalculator className="w-12 h-12" />,
-      slug: "muhasibatliq-xidmetleri",
-      benefits: [
-        "Mühasibat uçotunun aparılması",
-        "Maliyyə hesabatlarının hazırlanması",
-        "Vergi bəyannamələrinin tərtib edilməsi və təqdim olunması",
-        "Əmək haqqı hesablamaları",
-        "Audit xidmətləri"
-      ],
-      process: [
-        {
-          title: "İlkin qiymətləndirmə",
-          description: "Müəssisənin mühasibat uçotu vəziyyəti qiymətləndirilir."
-        },
-        {
-          title: "Mühasibat uçotunun təşkili",
-          description: "Mühasibat uçotu sisteminin qurulması və ya təkmilləşdirilməsi."
-        },
-        {
-          title: "Cari mühasibat əməliyyatları",
-          description: "Gündəlik mühasibat əməliyyatlarının aparılması."
-        },
-        {
-          title: "Hesabatların hazırlanması",
-          description: "Maliyyə və vergi hesabatlarının hazırlanması və təqdim edilməsi."
-        }
-      ],
-      tags: ["Mühasibat uçotu", "Maliyyə hesabatları", "Vergi bəyannamələri", "Əmək haqqı hesablamaları", "Audit"]
+      tags: [
+        translations[language]["service-3-tag-1"], 
+        translations[language]["service-3-tag-2"], 
+        translations[language]["service-3-tag-3"], 
+        translations[language]["service-3-tag-4"], 
+        translations[language]["service-3-tag-5"]
+      ]
     }
   ];
 
@@ -245,52 +162,52 @@ export default function ServicePage() {
   const advantages = [
     {
       icon: <FaShieldAlt className="w-6 h-6" />,
-      title: "Peşəkar Yanaşma",
-      description: "Yüksək keyfiyyətli hüquqi xidmətlər",
+      title: translations[language]["advantage-1-title"],
+      description: translations[language]["advantage-1-desc"],
     },
     {
       icon: <FaUsers className="w-6 h-6" />,
-      title: "Fərdi Yanaşma",
-      description: "Hər müştəriyə xüsusi diqqət",
+      title: translations[language]["advantage-2-title"],
+      description: translations[language]["advantage-2-desc"],
     },
     {
       icon: <FaClock className="w-6 h-6" />,
-      title: "Vaxtında İcra",
-      description: "Xidmətlərin vaxtında və keyfiyyətlə icrası",
+      title: translations[language]["advantage-3-title"],
+      description: translations[language]["advantage-3-desc"],
     },
     {
       icon: <FaChartLine className="w-6 h-6" />,
-      title: "Effektiv Həllər",
-      description: "Optimal və effektiv həllərin təklif edilməsi",
+      title: translations[language]["advantage-4-title"],
+      description: translations[language]["advantage-4-desc"],
     },
     {
       icon: <FaUserTie className="w-6 h-6" />,
-      title: "Təcrübəli Mütəxəssislər",
-      description: "5+ il təcrübəli hüquqşünaslar",
+      title: translations[language]["advantage-5-title"],
+      description: translations[language]["advantage-5-desc"],
     },
     {
       icon: <FaHandshake className="w-6 h-6" />,
-      title: "Etibarlı Tərəfdaşlıq",
-      description: "Uzunmüddətli əməkdaşlıq münasibətləri",
+      title: translations[language]["advantage-6-title"],
+      description: translations[language]["advantage-6-desc"],
     },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Valser MMC | {service.title}</title>
+        <title>Valser MMC | {translations[language][`service-${service.id}`]}</title>
         <meta
           name="description"
-          content={`${service.title} - ${service.description} Valser MMC peşəkar hüquqi xidmətlər təqdim edir.`}
+          content={`${translations[language][`service-${service.id}`]} - ${translations[language][`service-${service.id}-desc`]} Valser MMC peşəkar hüquqi xidmətlər təqdim edir.`}
         />
         <meta
           name="keywords"
-          content={`${service.title}, ${service.tags?.join(", ")}, valser mmc, hüquqi xidmətlər`}
+          content={`${translations[language][`service-${service.id}`]}, ${service.tags?.join(", ")}, valser mmc, hüquqi xidmətlər`}
         />
 
         {/* Open Graph Tags */}
-        <meta property="og:title" content={`Valser MMC | ${service.title}`} />
-        <meta property="og:description" content={service.description} />
+        <meta property="og:title" content={`Valser MMC | ${translations[language][`service-${service.id}`]}`} />
+        <meta property="og:description" content={translations[language][`service-${service.id}-desc`]} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/icon.png" />
       </Helmet>
@@ -302,12 +219,12 @@ export default function ServicePage() {
         className="md:py-40 py-28 bg-gray-50 dark:bg-gray-900"
       >
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white dark:bg-black rounded-lg shadow-xl overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-white dark:bg-black shadow-xl overflow-hidden">
             <div className="relative p-8">
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
+                transition={{ delay: 0.2, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="flex flex-col items-center"
               >
                 <motion.div
@@ -317,7 +234,7 @@ export default function ServicePage() {
                   {service.icon}
                 </motion.div>
                 <motion.h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
-                  {service.title}
+                  {translations[language][`service-${service.id}`]}
                 </motion.h1>
               </motion.div>
             </div>
@@ -326,45 +243,28 @@ export default function ServicePage() {
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
+                transition={{ delay: 0.4, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="grid grid-cols-1 gap-8"
               >
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-[#AC8968] dark:text-[#AC8968]">
-                    Xidmət Haqqında
+                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                    {translations[language]["service-about"]}
                   </h2>
                   <div className="space-y-4">
                     <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
                       {service.fullDescription}
                     </p>
-
-                    {/* Tags */}
-                    <div className="mt-6">
-                      <p className="font-semibold sm:text-base text-sm text-gray-600 dark:text-gray-300 mb-2">
-                        Əsas sahələr:
-                      </p>
-                      <div className="flex flex-wrap sm:gap-2 gap-1">
-                        {service.tags?.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1.5 sm:text-sm text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </div>
 
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-[#AC8968] dark:text-[#AC8968]">
-                    Xidmətin Üstünlükləri
+                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                    {translations[language]["service-advantages"]}
                   </h2>
                   <div className="space-y-3">
                     {service.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-start">
-                        <FaCheckCircle className="text-[#AC8968] mt-1 mr-2 flex-shrink-0" />
+                        <FaCheckCircle className="text-red-800 mt-1 mr-2 flex-shrink-0" />
                         <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
                           {benefit}
                         </p>
@@ -374,8 +274,8 @@ export default function ServicePage() {
                 </div>
 
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-6 text-[#AC8968] dark:text-[#AC8968]">
-                    Xidmət Prosesi
+                  <h2 className="sm:text-xl text-base font-semibold mb-6 text-red-800 dark:text-red-800">
+                    {translations[language]["service-process"]}
                   </h2>
                   <div className="space-y-4">
                     {service.process.map((step, index) => (
@@ -383,7 +283,7 @@ export default function ServicePage() {
                         key={index}
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+                        transition={{ delay: 0.6 + index * 0.1, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                         className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
                       >
                         <div
@@ -396,7 +296,7 @@ export default function ServicePage() {
                           }
                         >
                           <div className="flex items-center gap-x-3">
-                            <span className="min-w-2 min-h-2 max-w-2 max-h-2 bg-[#AC8968] rounded-full"></span>
+                            <span className="min-w-2 min-h-2 max-w-2 max-h-2 bg-red-800 rounded-full"></span>
                             <h3 className="font-medium sm:text-base text-sm text-gray-900 dark:text-white">
                               {step.title}
                             </h3>
@@ -425,7 +325,7 @@ export default function ServicePage() {
                           }}
                           transition={{
                             duration: 0.3,
-                            ease: "easeInOut",
+                            ease: [0.25, 0.1, 0.25, 1],
                           }}
                           style={{ overflow: "hidden" }}
                         >
@@ -441,8 +341,8 @@ export default function ServicePage() {
                 </div>
 
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-6 text-[#AC8968] dark:text-[#AC8968]">
-                    Valser MMC Fərqi
+                  <h2 className="sm:text-xl text-base font-semibold mb-6 text-red-800 dark:text-red-800">
+                    {translations[language]["service-why-choose"]}
                   </h2>
                   <div className="grid min-[880px]:grid-cols-3 sm:grid-cols-2 gap-4">
                     {advantages.map((advantage, index) => (
@@ -450,10 +350,10 @@ export default function ServicePage() {
                         key={index}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.1 * index, duration: 0.4 }}
+                        transition={{ delay: 0.1 * index, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                         className="flex items-start space-x-3 p-4 rounded-lg bg-gray-50 dark:bg-gray-900"
                       >
-                        <div className="flex items-center justify-center h-full text-[#AC8968]">
+                        <div className="flex items-center justify-center h-full text-red-800">
                           {advantage.icon}
                         </div>
                         <div>
@@ -477,10 +377,10 @@ export default function ServicePage() {
                 className="flex justify-center mt-8"
               >
                 <Link to="/contact">
-                  <button className="px-8 py-4 bg-[#AC8968] text-white hover:bg-[#8A6D54] transition-all duration-300 hover:shadow-lg">
-                    Müraciət Et
+                  <button className="uppercase px-8 py-4 bg-red-800 text-white hover:bg-red-900 transition-all duration-300 hover:shadow-lg">
+                    {translations[language]["apply"]}
                   </button>
-                </Link>
+                  </Link>
               </motion.div>
             </div>
           </div>
@@ -495,11 +395,11 @@ export default function ServicePage() {
                     key={relatedService.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                     className="h-full"
                   >
                     <Link to={`/service/${relatedService.slug}`}>
-                      <div className="h-full flex flex-col bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:border-[#AC8968] dark:hover:border-white transition-all duration-300">
+                      <div className="h-full flex flex-col bg-white dark:bg-black border border-gray-200 dark:border-gray-800 p-6 hover:border-[#AC8968] dark:hover:border-white transition-all duration-300">
                         <div className="flex items-center mb-4">
                           <div className="bg-red-800 dark:bg-white text-white dark:text-black p-3 rounded-lg mr-4">
                             {relatedService.icon}
@@ -512,10 +412,9 @@ export default function ServicePage() {
                         <p className="text-gray-600 dark:text-gray-400 mt-2 flex-grow">
                           {relatedService.description}
                         </p>
-                        
                         <div className="cursor-pointer mt-6 pt-4 border-t border-gray-200 dark:border-gray-800">
                           <span className="inline-flex items-center text-black dark:text-white font-medium group-hover:opacity-60 transition-opacity">
-                            Ətraflı
+                            {translations[language]["more"]}
                             <ArrowRight className="group-hover:translate-x-1 ml-2 w-4 h-4 transition duration-300" />
                           </span>
                         </div>

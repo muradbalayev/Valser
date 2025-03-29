@@ -1,52 +1,36 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { FaBalanceScale, FaBuilding, FaFileContract, FaGavel, FaHandshake, FaCalculator } from 'react-icons/fa';
+import { FaBalanceScale, FaBuilding, FaFileContract } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import translations from "../../../translations.json";
+import { LanguageContext } from "@/context/languageContext";
+import { useContext } from 'react';
 
 export default function Services() {
-  // Static array of legal services with slugs
+  const { language } = useContext(LanguageContext);
+  
+  // Static array of services with slugs
   const services = [
     {
       id: 1,
-      title: "Müəssisələrin hüquqi müşayiəti",
-      description: "Müəssisənizin hüquqi məsələlərində peşəkar dəstək və müşayiət xidmətləri.",
+      title: translations[language]["service-1"],
+      description: translations[language]["service-1-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "huquqi-musayiet"
+      slug: "attestasiya"
     },
     {
       id: 2,
-      title: "Müqavilələrin hazırlanması və hüquqi ekspertizası",
-      description: "Müqavilələrin hazırlanması və mövcud müqavilələrin hüquqi ekspertizası.",
+      title: translations[language]["service-2"],
+      description: translations[language]["service-2-desc"],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muqavilelerin-hazirlanmasi"
+      slug: "muhasibatliq"
     },
     {
       id: 3,
-      title: "Əmək münasibətlərinin tənzimlənməsi",
-      description: "Əmək münasibətlərinin qanunvericiliyə uyğun şəkildə tənzimlənməsi xidmətləri.",
-      icon: <FaHandshake className="w-12 h-12" />,
-      slug: "emek-munasibetleri"
-    },
-    {
-      id: 4,
-      title: "Məhkəmə və arbitraj işlərində təmsilçilik",
-      description: "Məhkəmə və arbitraj proseslərində peşəkar hüquqi təmsilçilik xidmətləri.",
-      icon: <FaGavel className="w-12 h-12" />,
-      slug: "mehkeme-temsilciliyi"
-    },
-    {
-      id: 5,
-      title: "Korporativ hüquq və vergi hüququ sahəsində məsləhətlər",
-      description: "Korporativ və vergi hüququ sahəsində peşəkar məsləhət xidmətləri.",
+      title: translations[language]["service-3"],
+      description: translations[language]["service-3-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "korporativ-huquq"
-    },
-    {
-      id: 6,
-      title: "Mühasibatlıq xidmətləri",
-      description: "Peşəkar mühasibatlıq və maliyyə hesabatları xidmətləri.",
-      icon: <FaCalculator className="w-12 h-12" />,
-      slug: "muhasibatliq-xidmetleri"
+      slug: "huquqi-xidmetler"
     }
   ];
 
@@ -60,11 +44,11 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="uppercase ordina-medium text-3xl md:text-4xl font-bold text-[#AC8968] dark:text-white mb-6">
-            Xidmətlərimiz
+          <h2 className="uppercase ordina-medium text-3xl md:text-4xl font-bold text-red-800 dark:text-white mb-6">
+            {translations[language]["services"]}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Valser MMC hüquq sahəsində geniş spektrli peşəkar xidmətlər təqdim edir
+            {translations[language]["services-desc"]}
           </p>
         </motion.div>
 
@@ -94,7 +78,7 @@ export default function Services() {
                 
                 <Link to={`/service/${service.slug}`} className="cursor-pointer mt-6 pt-4 border-t border-gray-200 dark:border-gray-800">
                   <span className="inline-flex items-center text-black dark:text-white font-medium group-hover:opacity-60 transition-opacity">
-                    Ətraflı
+                    {translations[language]["more"]}
                     <ArrowRight className="group-hover:translate-x-1 ml-2 w-4 h-4 transition duration-300" />
                   </span>
                 </Link>

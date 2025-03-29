@@ -1,26 +1,27 @@
+import { LanguageContext } from "@/context/languageContext";
 import { useCourseApplyMutation } from "@/redux/misc/courseApplyApi";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBuilding } from "react-icons/fa";
 import Select from "react-select";
 import Swal from "sweetalert2";
+import translations from "../../translations.json";
 
 const ContactPage = () => {
   const [courseApply, { isLoading }] = useCourseApplyMutation();
-
+  const { language } = useContext(LanguageContext);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const serviceOptions = [
-    { value: "legal", label: "Hüquqi xidmətlər" },
-    { value: "accounting", label: "Mühasibatlıq xidmətləri" },
-    { value: "attestation", label: "İş yerlərinin attestasiyası" },
-    { value: "consultation", label: "Məsləhət xidmətləri" },
-    { value: "other", label: "Digər" },
+    { value: "attestation", label: translations[language]["service-1"] },
+    { value: "accounting", label: translations[language]["service-2"] },
+    { value: "legal-services", label: translations[language]["service-3"] },
+    { value: "other", label: translations[language]["other"] },
   ];
 
   const validationSchema = {
@@ -177,19 +178,33 @@ const ContactPage = () => {
         className="contact-section mx-auto md:py-40 py-28  dark:bg-gray-900"
       >
         <div className="container mx-auto px-4">
-          <h1 className="ordina-medium uppercase text-3xl md:text-4xl font-bold text-[#AC8968] dark:text-white text-center mb-16">
-            Bizimlə Əlaqə
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+            className="ordina-medium uppercase text-3xl md:text-4xl font-bold text-red-800 dark:text-white text-center mb-16">
+            {translations[language]["contact-us"]}
+          </motion.h1>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              >
               <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-black p-8  border border-gray-200 dark:border-gray-800 shadow-lg">
                 <div>
                   <label
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Ad Soyad
+                    {translations[language]["fullname"]}
                   </label>
                   <input
                     type="text"
@@ -197,7 +212,7 @@ const ContactPage = () => {
                     name="fullName"
                     value={data.fullName}
                     onChange={handleChange}
-                    placeholder="Ad Soyad"
+                    placeholder={translations[language]["fullname"]}
                     required
                     className="mt-1 outline-none border py-2 px-3 block w-full border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   />
@@ -208,7 +223,7 @@ const ContactPage = () => {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    E-mail
+                    {translations[language]["email"]}
                   </label>
                   <input
                     type="email"
@@ -216,7 +231,7 @@ const ContactPage = () => {
                     name="email"
                     value={data.email}
                     onChange={handleChange}
-                    placeholder="E-mail ünvanınız"
+                    placeholder={translations[language]["email"]}
                     required
                     className="mt-1 outline-none border py-2 px-3 block w-full border-gray-300 shadow-sm focus:border-[#AC8968] focus:ring focus:ring-[#AC8968] focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   />
@@ -227,7 +242,7 @@ const ContactPage = () => {
                     htmlFor="phoneNumber"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Əlaqə nömrəsi
+                    {translations[language]["phone"]}
                   </label>
                   <input
                     type="tel"
@@ -248,7 +263,7 @@ const ContactPage = () => {
                     htmlFor="course"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
-                    Maraqlandığınız xidmət növü
+                    {translations[language]["select"]}
                   </label>
                   <Select
                     name="applicationCategory"
@@ -257,7 +272,7 @@ const ContactPage = () => {
                     )}
                     onChange={handleSelectChange}
                     options={serviceOptions}
-                    placeholder="Xidməti seçin..."
+                    placeholder={translations[language]["select"]}
                     isSearchable={false}
                     classNamePrefix="select"
                     className="react-select-container"
@@ -269,7 +284,6 @@ const ContactPage = () => {
                         primary25: "#f3f4f6",
                         primary50: "#AC8968",
                         primary75: "#8A6D54",
-                        neutral0: "transparent",
                         neutral20: "#e5e7eb",
                         neutral30: "#AC8968",
                         neutral80: "#374151",
@@ -291,37 +305,44 @@ const ContactPage = () => {
                         Göndərilir...
                       </div>
                     ) : (
-                      "Müraciət Et"
+                      translations[language]["apply"]
                     )}
                   </motion.button>
                 </div>
               </form>
-            </div>
+            </motion.div>
 
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              className="space-y-8">
               <div className="bg-white dark:bg-black p-8  border border-gray-200 dark:border-gray-800 shadow-lg">
-                <h2 className="text-2xl font-semibold mb-6 text-[#AC8968] dark:text-[#AC8968]">
-                  Əlaqə Məlumatları
+                <h2 className="text-2xl font-semibold mb-6 text-red-800 dark:text-red-800">
+                  {translations[language]["contact-info"]}
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
-                    <FaPhone className="mr-3 mt-1 text-[#AC8968]" />
+                    <FaPhone className="mr-3 mt-1 text-red-800" />
                     <div>
                       <p>+994 55 123 45 67</p>
                       <p>+994 50 123 45 67</p>
                     </div>
                   </div>
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
-                    <FaEnvelope className="mr-3 mt-1 text-[#AC8968]" /> 
+                    <FaEnvelope className="mr-3 mt-1 text-red-800" /> 
                     <span>info@valsermmc.az</span>
                   </div>
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
-                    <FaMapMarkerAlt className="mr-3 mt-1 text-[#AC8968]" /> 
+                    <FaMapMarkerAlt className="mr-3 mt-1 text-red-800" /> 
                     <span>Bakı şəhəri, Nərimanov rayonu</span>
                   </div>
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
-                    <FaBuilding className="mr-3 mt-1 text-[#AC8968]" /> 
-                    <span>Valser MMC</span>
+                    <FaBuilding className="mr-3 mt-1 text-red-800" /> 
+                    <span>{translations[language]["valser"]}</span>
                   </div>
                 </div>
               </div>
@@ -337,7 +358,7 @@ const ContactPage = () => {
                   title="Google Maps"
                 ></iframe>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.div>

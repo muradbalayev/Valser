@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-// import heroImg from "../../../assets/logos/heroImg.webp";
 import { FiChevronDown } from "react-icons/fi";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
 import test from "../../../assets/images/test3.jpg";
-
+import { LanguageContext } from "@/context/languageContext";
+import translations from "../../../translations.json";
 export default function HeroSection() {
+  const { language } = useContext(LanguageContext);
+
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -45,6 +47,9 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative lg:pt-0 pt-20 min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image with parallax effect */}
       <motion.div 
+      initial={{ scale: 1.2 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.8 , ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute inset-0 z-0" 
         style={{
           backgroundImage: `url(${test})`,
@@ -64,12 +69,12 @@ export default function HeroSection() {
           <div className="w-full  mb-8 lg:mb-0">
             <motion.h1
               className="uppercase text-white text-4xl md:text-5xl lg:text-7xl hero-title text-center mb-10  leading-tight"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.9 , ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Valser ilə hədəfə bir addım daha yaxın
-            </motion.h1>
+              {translations[language]["header-title"]}
+              </motion.h1>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4"

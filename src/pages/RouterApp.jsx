@@ -203,60 +203,60 @@ function AuthInitializer() {
   // }
 
   return (
-    <Routes>
-      {/* Admin Routes */}
-      {/* <Route
-        path="/admin/lgn-evo-scrt"
-        element={
-          <PublicRoute>
-            <LoginPage />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/admin/dashboard"
-        element={
-          <ProtectedAdminRoute requiredRole="admin">
-            <AdminLayout />
-          </ProtectedAdminRoute>
-        }
-      >
-        <Route path="" element={<AdminInstructorsPage />} />
-        <Route path="courses" element={<AdminCoursesPage />} />
-        <Route path="graduates" element={<AdminGraduatesPage />} />
-        <Route path="events" element={<AdminEventPage />} />
-        <Route path="vacancies" element={<AdminVacanciesPage />} />
-        <Route path="blogs" element={<AdminBlogPage />} />
-        <Route path="blogs/:blogId" element={<AdminBlogDetail />} />
-        <Route path="applies" element={<AdminAppliesPage />} />
-        <Route path="diplomas" element={<AdminDiplomaPage/> }/>
-        <Route path="partners" element={<AdminPartnersPage />} />
-      </Route> */}
+      <Routes>
+        {/* Admin Routes */}
+        {/* <Route
+          path="/admin/lgn-evo-scrt"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedAdminRoute requiredRole="admin">
+              <AdminLayout />
+            </ProtectedAdminRoute>
+          }
+        >
+          <Route path="" element={<AdminInstructorsPage />} />
+          <Route path="courses" element={<AdminCoursesPage />} />
+          <Route path="graduates" element={<AdminGraduatesPage />} />
+          <Route path="events" element={<AdminEventPage />} />
+          <Route path="vacancies" element={<AdminVacanciesPage />} />
+          <Route path="blogs" element={<AdminBlogPage />} />
+          <Route path="blogs/:blogId" element={<AdminBlogDetail />} />
+          <Route path="applies" element={<AdminAppliesPage />} />
+          <Route path="diplomas" element={<AdminDiplomaPage/> }/>
+          <Route path="partners" element={<AdminPartnersPage />} />
+        </Route> */}
 
-      {/* User Routes */}
-      <Route
-        element={
-          <div className={``}>
-            <div className="bg-white dark:bg-[#0c0c0c] min-h-screen relative">
-           
+        {/* User Routes */}
+        <Route
+          element={
+            <div className={``}>
+              <div className="bg-white dark:bg-[#0c0c0c] min-h-screen relative">
+             
 
-              {/* Main content */}
-              <div className="relative z-10">
-                <UserLayout />
+                {/* Main content */}
+                <div className="relative z-10">
+                  <UserLayout />
+                </div>
               </div>
             </div>
-          </div>
-        }
-      >
-        <Route index path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/service/:serviceSlug" element={<ServicePage />} />
-      </Route>
+          }
+        >
+          <Route index  element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/service/:serviceSlug" element={<ServicePage />} />
+        </Route>
 
-      {/* Not Found Route */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        {/* Not Found Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
   );
 }
 

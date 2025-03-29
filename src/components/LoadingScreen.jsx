@@ -83,7 +83,7 @@ const LoadingScreen = () => {
       {loading && (
         <motion.div
           ref={containerRef}
-          className="fixed inset-0 z-50 xl:flex hidden flex-col bg-[#AC8968] items-center justify-center overflow-x-hidden"
+          className="fixed inset-0 z-50 xl:flex hidden flex-col bg-red-800 items-center justify-center overflow-x-hidden"
           initial={{ opacity: 1 }}
           exit={{
             y: "-100%",

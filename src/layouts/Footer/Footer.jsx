@@ -2,10 +2,13 @@ import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { LanguageContext } from '@/context/languageContext';
+import translations from '../../translations.json';
 
 const Footer = () => {
   const footerRef = useRef(null);
+  const { language } = useContext(LanguageContext);
   
   // Create scroll-based animations
   const { scrollYProgress } = useScroll({
@@ -30,10 +33,9 @@ const Footer = () => {
         {/* Logo and tagline */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Valser MMC</h2>
-            <p className="text-gray-400 max-w-md">Hüquq, mühasibatlıq və iş yerlərinin attestasiyası sahələrində peşəkar xidmətlər</p>
+            <h2 className="text-3xl font-bold mb-2">{translations[language]["valser"]}</h2>
+            <p className="text-gray-400 max-w-md">{translations[language]["valser-desc"]}</p>
           </div>
-          
           {/* Contact info */}
           <div className="mt-8 md:mt-0">
             <div className="flex items-center mb-3">
@@ -55,31 +57,30 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-b border-gray-800">
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Naviqasiya</h3>
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">{translations[language]["navigation"]}</h3>
             <ul className="space-y-2 sm:text-start text-center">
-              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Ana Səhifə</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Haqqımızda</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Xidmətlər</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Əlaqə</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">{translations[language]["homepage"]}</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">{translations[language]["about"]}</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">{translations[language]["contact"]}</Link></li>
             </ul>
           </div>
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Xidmətlər</h3>
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">{translations[language]["services"]}</h3>
             <ul className="space-y-2 sm:text-start text-center">
-              <li><Link to="/service/huquqi-musayiet" className="text-gray-400 hover:text-white transition-colors">Hüquqi müşayiəti</Link></li>
-              <li><Link to="/service/muqavilelerin-hazirlanmasi" className="text-gray-400 hover:text-white transition-colors">Müqavilələrin hazırlanması</Link></li>
-              <li><Link to="/service/emek-munasibetleri" className="text-gray-400 hover:text-white transition-colors">Əmək münasibətlərinin tənzimlənməsi</Link></li>
-              <li><Link to="/service/mehkeme-temsilciliyi" className="text-gray-400 hover:text-white transition-colors">Məhkəmə və arbitraj işlərində təmsilçilik</Link></li>
-              <li><Link to="/service/korporativ-huquq" className="text-gray-400 hover:text-white transition-colors">Korporativ hüquq</Link></li>
-              <li><Link to="/service/muhasibatliq-xidmetleri" className="text-gray-400 hover:text-white transition-colors">Mühasibatlıq xidmətləri</Link></li>
+              <li><Link to="/service/huquqi-musayiet" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-1"]}</Link></li>
+              <li><Link to="/service/muqavilelerin-hazirlanmasi" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-2"]}</Link></li>
+              <li><Link to="/service/emek-munasibetleri" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-3"]}</Link></li>
+              <li><Link to="/service/mehkeme-temsilciliyi" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-4"]}</Link></li>
+              <li><Link to="/service/korporativ-huquq" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-5"]}</Link></li>
+              <li><Link to="/service/muhasibatliq-xidmetleri" className="text-gray-400 hover:text-white transition-colors">{translations[language]["service-6"]}</Link></li>
             </ul>
           </div>
           
           {/* Social media */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">Sosial Media</h3>
+            <h3 className="text-lg font-semibold mb-4 sm:text-start text-center">{translations[language]["social-media"]}</h3>
             <div className="flex sm:justify-start justify-center gap-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors">
                 <FaFacebook className="text-white" />
@@ -97,7 +98,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="flex sm:flex-row flex-col items-center justify-between text-center text-gray-400 my-8 pt-8 ">
           <p>
-            &copy; {new Date().getFullYear()} Valser MMC. Bütün hüquqlar qorunur.
+            &copy; {new Date().getFullYear()} {translations[language]["valser-footer"]}
           </p>
           <p className="mt-2">
             Designed and developed by {' '}

@@ -1,29 +1,28 @@
-import {  useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import {
   FaInstagram,
   FaLinkedin,
   FaFacebook,
 } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
 
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
-import darkLogo from "../../assets/logos/valsertextBlack.png";
-import whiteLogo from "../../assets/logos/valsertextWhite.png";
+import darkLogo from "../../assets/logos/valserBlack.png";
+import whiteLogo from "../../assets/logos/valserWhite.png";
 // import logo from "../../assets/logos/logoWhite.png";
 // import logoBlack from "../../assets/logos/logoBlack.png";
 import ApplyModal from "@/components/modals/ApplyModal";
-import { RiCloseLargeFill } from "react-icons/ri";
+import { RiCloseLargeFill, RiMenuLine } from "react-icons/ri";
 import {
   FaBalanceScale,
   FaBuilding,
   FaFileContract,
-  FaGavel,
-  FaHandshake,
-  FaCalculator,
 } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
+import translations from '../../translations.json'
+import { LanguageContext } from '../../context/languageContext'
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +33,22 @@ export default function Navbar() {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const location = useLocation();
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const { language, changeLanguage } = useContext(LanguageContext);
+
+  const handleLanguageChange = (newLanguage) => {
+    changeLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  };
+
+  const languages = [
+    { code: "az", label: "AZ" },
+    { code: "en", label: "EN" },
+    { code: "ru", label: "RU" },
+  ];
+
+  const filteredLanguages = languages.filter((lang) => lang?.code !== language);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,46 +83,25 @@ export default function Navbar() {
   const services = [
     {
       id: 1,
-      title: "Müəssisələrin hüquqi müşayiəti",
-      description: "Müəssisənizin hüquqi məsələlərində peşəkar dəstək və müşayiət xidmətləri.",
+      title: translations[language]['service-1'],
+      description: translations[language]['service-1-desc'],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "huquqi-musayiet"
+      slug: "attestasiya"
     },
     {
       id: 2,
-      title: "Müqavilələrin hazırlanması və hüquqi ekspertizası",
-      description: "Müqavilələrin hazırlanması və mövcud müqavilələrin hüquqi ekspertizası.",
+      title: translations[language]['service-2'],
+      description: translations[language]['service-2-desc'],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muqavilelerin-hazirlanmasi"
+      slug: "muhasibatliq"
     },
     {
       id: 3,
-      title: "Əmək münasibətlərinin tənzimlənməsi",
-      description: "Əmək münasibətlərinin qanunvericiliyə uyğun şəkildə tənzimlənməsi xidmətləri.",
-      icon: <FaHandshake className="w-12 h-12" />,
-      slug: "emek-munasibetleri"
-    },
-    {
-      id: 4,
-      title: "Məhkəmə və arbitraj işlərində təmsilçilik",
-      description: "Məhkəmə və arbitraj proseslərində peşəkar hüquqi təmsilçilik xidmətləri.",
-      icon: <FaGavel className="w-12 h-12" />,
-      slug: "mehkeme-temsilciliyi"
-    },
-    {
-      id: 5,
-      title: "Korporativ hüquq və vergi hüququ sahəsində məsləhətlər",
-      description: "Korporativ və vergi hüququ sahəsində peşəkar məsləhət xidmətləri.",
+      title: translations[language]['service-3'],
+      description: translations[language]['service-3-desc'],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "korporativ-huquq"
+      slug: "huquqi-xidmetler"
     },
-    {
-      id: 6,
-      title: "Mühasibatlıq xidmətləri",
-      description: "Peşəkar mühasibatlıq və maliyyə hesabatları xidmətləri.",
-      icon: <FaCalculator className="w-12 h-12" />,
-      slug: "muhasibatliq-xidmetleri"
-    }
   ];
 
   return (
@@ -243,12 +237,12 @@ export default function Navbar() {
               )}
             </button> */}
             <div className="md:hidden flex items-center justify-center gap-2"> 
-                <button
+                {/* <button
                 onClick={openModal}
                 className={` apply-btn uppercase text-white dark:text-black bg-red-800 cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
               >
                 Müraciət
-              </button>
+              </button> */}
 
           <button
             onClick={toggleMenu}
@@ -261,7 +255,7 @@ export default function Navbar() {
             {isMenuOpen  ? (
               <RiCloseLargeFill className="text-black"  size={24} />
             ) : (
-              <GiHamburgerMenu className={` ${isScrolled ? "text-black" : "text-white"}`} size={24} />
+              <RiMenuLine className={` ${isScrolled ? "text-black" : "text-white"}`} size={24} />
             )}
           </button>
           </div>
@@ -272,7 +266,7 @@ export default function Navbar() {
               isMenuOpen ? "" : "hidden md:flex"
             }`}
           >
-            <ul className="nav-list xl:ms-10 ms-0 md:flex justify-center items-center hidden p-4 md:py-3 mt-4  rounded-lg flex-row lg:gap-8 min-880:gap-6 gap-4 md:mt-0 md:border-0 dark:md:bg-transparent dark:bg-gray-900 md:bg-transparent bg-white">
+            <ul className="nav-list xl:ms-10 ms-0 md:flex justify-center items-center hidden p-4 md:py-3 mt-4  rounded-lg flex-row xl:gap-7 lg:gap-6 min-880:gap-4 gap-3 md:mt-0 md:border-0 dark:md:bg-transparent dark:bg-gray-900 md:bg-transparent bg-white">
               <li>
                 <Link
                   to="/"
@@ -283,15 +277,15 @@ export default function Navbar() {
                         : "text-white dark:text-white"
                     } `}
                 >
-                  Ana Səhifə
-                </Link>
+              {translations[language]["homepage"]}
+              </Link>
               </li>
               <Menu setActive={setActive}>
-                <div className="block">
+                <div>
                   <MenuItem
                     setActive={setActive}
                     active={active}
-                    item="Xidmətlər"
+                    item={translations[language]["services"]}
                     isHomePage={isHomePage}
                     isScrolled={isScrolled}
                     isMenuOpen={isMenuOpen}
@@ -319,7 +313,7 @@ export default function Navbar() {
                         : "text-white dark:text-white"
                     } `}
                 >
-                  Haqqımızda
+                  {translations[language]["about"]}
                 </Link>
               </li>
               <li>
@@ -332,15 +326,35 @@ export default function Navbar() {
                         : "text-white dark:text-white"
                     } `}
                 >
-                  Əlaqə
+                  {translations[language]["contact"]}
                 </Link>
               </li>
+              <div className="flex items-center justify-center gap-4">
               <li
                 onClick={openModal}
-                className={`apply-btn uppercase text-white dark:text-black bg-red-800 hover:bg-red-900 block cursor-pointer lg:text-sm text-xs shadow-lg  transition-all duration-300  lg:px-9 px-4 lg:py-4 py-3`}
+                className={`apply-btn uppercase text-white dark:text-black bg-red-800 hover:bg-red-900 block cursor-pointer xl:text-sm lg:text-[13px] text-xs shadow-lg  transition-all duration-300 xl:px-9 xl:py-4 lg:px-7 lg:py-4 px-4  py-3`}
               >
-                Müraciət
+                {translations[language]["apply"]}
               </li>
+              <div
+              className="lang-switcher group flex justify-center xl:min-w-[100px] p-1  hover:bg-red-800 backdrop-blur-sm "
+            >
+              {filteredLanguages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className={` xl:text-sm text-xs font-medium xl:px-2 px-1 first:border-e transition-colors ${
+                    isScrolled || !isHomePage || isMenuOpen
+                      ? " text-black  border-black group-hover:text-white group-hover:border-white"
+                      : "text-white  border-white"
+                  }`}
+                  onClick={() => handleLanguageChange(lang.code)}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+            </div>
+
             </ul>
           </div>
 
@@ -369,7 +383,7 @@ export default function Navbar() {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-semibold text-[#AC8968]">Menyu</h3>
+                    <h3 className="text-xl font-semibold text-red-800">{translations[language]["menu"]}</h3>
                     <button 
                       onClick={toggleMenu}
                       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -388,12 +402,12 @@ export default function Navbar() {
                         className="flex items-center justify-between cursor-pointer py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors mb-2"
                         onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                       >
-                        <h3 className="text-lg font-semibold text-[#AC8968]">Xidmətlər</h3>
+                        <h3 className="text-lg font-semibold text-red-800">{translations[language]["services"]}</h3>
                         <motion.div
                           animate={{ rotate: servicesDropdownOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <FaChevronDown className="text-[#AC8968]" />
+                          <FaChevronDown className="text-red-800" />
                         </motion.div>
                       </div>
                       
@@ -438,21 +452,21 @@ export default function Navbar() {
                         to="/"
                         className="flex items-center py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
                       >
-                        Ana Səhifə
+                        {translations[language]["homepage"]}
                       </Link>
                       <Link
                         onClick={toggleMenu}
                         to="/about"
                         className="flex items-center py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
                       >
-                        Haqqımızda
+                        {translations[language]["about"]}
                       </Link>
                       <Link
                         onClick={toggleMenu}
                         to="/contact"
                         className="flex items-center py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
                       >
-                        Əlaqə
+                        {translations[language]["contact"]}
                       </Link>
                     </motion.div>
                     
@@ -467,17 +481,29 @@ export default function Navbar() {
                           openModal();
                           toggleMenu();
                         }}
-                        className="w-full py-3 px-4 bg-red-800 text-white hover:bg-red-900 transition-colors"
+                        className="uppercase w-full py-3 px-4 bg-red-800 text-white hover:bg-red-900 transition-colors"
                       >
-                        Müraciət
+                        {translations[language]["apply"]}
                       </button>
                     </motion.div>
-                    
+                    <div
+              className="lang-switcher mx-auto flex justify-center xl:min-w-[100px] p-2 hover:bg-red-800 backdrop-blur-sm "
+            >
+              {filteredLanguages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className={`text-white xl:text-sm text-sm font-medium xl:px-2 px-1 first:border-e hover:text-green transition-colors`}
+                  onClick={() => handleLanguageChange(lang.code)}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
                     <motion.div 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
-                      className="flex justify-center space-x-4 pt-6"
+                      className="flex justify-center space-x-4"
                     >
                       <a
                         aria-label="instagram"
@@ -485,7 +511,7 @@ export default function Navbar() {
                         href="https://www.instagram.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-[#AC8968] dark:hover:text-[#AC8968] transition-colors"
+                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
                       >
                         <FaInstagram size={22} />
                       </a>
@@ -495,7 +521,7 @@ export default function Navbar() {
                         href="https://www.linkedin.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-[#AC8968] dark:hover:text-[#AC8968] transition-colors"
+                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
                       >
                         <FaLinkedin size={22} />
                       </a>
@@ -505,7 +531,7 @@ export default function Navbar() {
                         href="https://www.facebook.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-[#AC8968] dark:hover:text-[#AC8968] transition-colors"
+                        className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
                       >
                         <FaFacebook size={22} />
                       </a>

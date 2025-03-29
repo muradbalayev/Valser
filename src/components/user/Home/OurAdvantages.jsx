@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
-import { FaBalanceScale, FaCalculator, FaClipboardCheck, FaFileContract, FaGavel, FaHandshake } from 'react-icons/fa';
+import { FaBalanceScale, FaBuilding, FaFileContract } from 'react-icons/fa';
 import { useState } from 'react';
 import ApplyModal from '@/components/modals/ApplyModal';
+import translations from "../../../translations.json";
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/languageContext';
 
 const OurAdvantages = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { language } = useContext(LanguageContext);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -12,39 +16,24 @@ const OurAdvantages = () => {
   const services = [
     {
       id: 1,
-      title: "İş Yerlərinin Attestasiyası",
-      description: "Azərbaycan qanunvericiliyinə uyğun olaraq, bütün müəssisələrdə iş yerlərinin attestasiyası xidməti.",
-      icon: <FaClipboardCheck className="w-8 h-8" />,
+      title: translations[language]["service-1"],
+      description: translations[language]["service-1-desc"],
+      icon: <FaBuilding className="w-8 h-8" />,
+      slug: "attestasiya"
     },
     {
       id: 2,
-      title: "Hüquqi Müşayiət",
-      description: "Müəssisələrin hüquqi müşayiəti və müqavilələrin hazırlanması, hüquqi ekspertizası.",
-      icon: <FaGavel className="w-8 h-8" />,
+      title: translations[language]["service-2"],
+      description: translations[language]["service-2-desc"],
+      icon: <FaFileContract className="w-8 h-8" />,
+      slug: "muhasibatliq"
     },
     {
       id: 3,
-      title: "Əmək Münasibətləri",
-      description: "Əmək münasibətlərinin tənzimlənməsi və hüquqi dəstək.",
-      icon: <FaHandshake className="w-8 h-8" />,
-    },
-    {
-      id: 4,
-      title: "Məhkəmə Təmsilçiliyi",
-      description: "Məhkəmə və arbitraj işlərində peşəkar təmsilçilik xidmətləri.",
+      title: translations[language]["service-3"],
+      description: translations[language]["service-3-desc"],
       icon: <FaBalanceScale className="w-8 h-8" />,
-    },
-    {
-      id: 5,
-      title: "Korporativ Hüquq",
-      description: "Korporativ hüquq və vergi hüququ sahəsində peşəkar məsləhətlər.",
-      icon: <FaFileContract className="w-8 h-8" />,
-    },
-    {
-      id: 6,
-      title: "Mühasibatlıq Xidmətləri",
-      description: "Peşəkar mühasibatlıq və maliyyə hesabatları xidmətləri.",
-      icon: <FaCalculator className="w-8 h-8" />,
+      slug: "huquqi-xidmetler"
     }
   ];
 
@@ -58,11 +47,11 @@ const OurAdvantages = () => {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <h2 className="uppercase ordina-medium text-[#AC8968] text-3xl md:text-4xl font-bold dark:text-white mb-6">
-            NƏ EDİRİK?
+          <h2 className="uppercase ordina-medium text-red-800 text-3xl md:text-4xl font-bold dark:text-white mb-6">
+            {translations[language]["what-we-do"]}
           </h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Hüquq, mühasibatlıq və iş yerlərinin attestasiyası sahələrində peşəkar xidmətlər
+            {translations[language]["what-we-do-desc"]}
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -104,7 +93,7 @@ const OurAdvantages = () => {
             onClick={openModal}
             className="bg-red-800 hover:bg-red-900 dark:bg-white text-white dark:text-black font-medium px-10 py-3 transition-all duration-300 hover:opacity-90"
           >
-            MÜRACİƏT
+            {translations[language]["apply"]}
           </button>
         </motion.div> 
       </div>

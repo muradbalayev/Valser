@@ -45,7 +45,7 @@ export const MenuItem = ({
                 transition={transition}
                 // layoutId ensures smooth animation
                 layoutId="active"
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                className="bg-white dark:bg-black backdrop-blur-sm  overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
                 <motion.div
                   // layout ensures smooth animation
@@ -74,7 +74,7 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative group"
+      className="relative group min-[835px]:block hidden"
     >
       <ul className="flex space-x-4">{children}</ul>
     </nav>
@@ -91,19 +91,19 @@ export const ProductItem = ({
     <Link
       to={href}
       onClick={() => setActive(null)}
-      className="flex min-1200:max-w-64 max-w-48 flex-col group cursor-pointer bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:border-black dark:hover:border-white transition-all duration-300"
+      className="flex items-start min-1200:max-w-72  max-w-48 flex-col group cursor-pointer bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800  p-4 hover:border-[#AC8968] dark:hover:border-white transition-all duration-300"
     >
-      <div className="flex items-center mb-2 h-full">
-        <h4 className="text-sm font-semibold text-black dark:text-white">
+      <div className="flex items-start mb-3">
+        <h4 className="min-1200:text-base text-sm font-semibold text-red-800 dark:text-white">
           {title}
         </h4>
       </div>
       
-      <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+      <p className="min-1200:text-sm text-xs text-gray-600 dark:text-gray-400 mt-1 mb-5 ">
         {description}
       </p>
       
-      <div className="group cursor-pointer mt-3 pt-2 border-t border-gray-200 dark:border-gray-800">
+      <div className="group w-full mt-auto cursor-pointer pt-3 border-t border-gray-200 dark:border-gray-800">
         <span className="inline-flex items-center text-xs text-black dark:text-white font-medium hover:opacity-60 transition-opacity">
           Ətraflı
           <ArrowRight className="group-hover:translate-x-1 ml-1 w-3 h-3 transition duration-300" />

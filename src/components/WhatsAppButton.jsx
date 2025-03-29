@@ -18,12 +18,12 @@ import { FaWhatsapp } from 'react-icons/fa';
 const WhatsAppButton = () => {
   return (
     <motion.a
-      href="https://wa.link/vooh3l"
+      // href="https://wa.link/vooh3l"
       target="_blank"
       title="WhatsApp"
       rel="noopener noreferrer"
       aria-label='WhatsApp'
-      className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 bg-[#AC8968] text-white p-4  rounded-full shadow-lg z-20 cursor-pointer hover:bg-green-600 transition-colors duration-300"
+      className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 bg-green-600 text-white p-4  rounded-full shadow-lg z-20 cursor-pointer hover:bg-green-700 transition-colors duration-300"
       animate={{
         rotate: [0, 10, -10, 10, -10, 0],
       }}

@@ -1,80 +1,36 @@
-
-/* Poppins */
 @font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/poppins-light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/poppins-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/poppins-medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/poppins-semibold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/poppins-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ordina Wide Regular';
-  src: url('/fonts/Ordina-Wide.woff2') format('woff2');
+  font-family: "Ordina Wide Regular";
+  src: url("/fonts/Ordina-Wide.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ordina Wide Medium';
-  src: url('/fonts/Ordina-WideMedium.woff2') format('woff2');
+  font-family: "Ordina Wide Medium";
+  src: url("/fonts/Ordina-WideMedium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ordina Wide Semibold';
-  src: url('/fonts/Ordina-WideSemibold.woff2') format('woff2');
+  font-family: "Ordina Wide Semibold";
+  src: url("/fonts/Ordina-WideSemibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ordina Wide Bold';
-  src: url('/fonts/Ordina-WideBold.woff2') format('woff2');
+  font-family: "Ordina Wide Bold";
+  src: url("/fonts/Ordina-WideBold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-.hero-title{
-  font-family: "Ordina Wide Regular", sans-serif;
-}
+
 
 * {
   font-family: "Ordina Wide Regular", sans-serif;
@@ -82,39 +38,41 @@
   font-optical-sizing: auto;
 }
 
-.ordina-medium{
+.ordina-medium {
   font-family: "Ordina Wide Medium", sans-serif;
 }
 
-
-.admin{
-  color: black!important;
-}
-
-.custom-toast{
-  max-width: 1000px!important;
-  background-color: rgb(48, 94, 247)!important;
-}
-
-.container{
-  max-width: 1440px!important;
-  padding-left: 100px!important;
-  padding-right: 100px!important;
-}
-
-.about-section{
-  max-width: 1440px!important;
-  padding-left: 100px!important;
-  padding-right: 100px!important;
+.hero-title {
+  font-family: "Ordina Wide Regular", sans-serif;
 }
 
 
-.poppins{
+.admin {
+  color: black !important;
+}
+
+.custom-toast {
+  max-width: 1000px !important;
+  background-color: rgb(48, 94, 247) !important;
+}
+
+.container {
+  max-width: 1440px !important;
+  padding-left: 100px !important;
+  padding-right: 100px !important;
+}
+
+.about-section {
+  max-width: 1440px !important;
+  padding-left: 100px !important;
+  padding-right: 100px !important;
+}
+
+.poppins {
   font-family: "Poppins", sans-serif;
 }
 
-
-.title{
+.title {
   font-size: 36px;
 }
 
@@ -126,76 +84,81 @@
 .nav-link {
   position: relative;
   font-family: "Ordina Wide Regular", sans-serif;
-   border-radius: 10px;
+  border-radius: 10px;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 14px;
   text-transform: uppercase;
 }
 
-.mobile-nav-link{
+.nav-link:hover{
+  color: #AC8968;
+}
+
+.mobile-nav-link {
   font-family: "Ordina Wide Medium", sans-serif;
 }
 
-.nav-list li{
+.nav-list li {
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.apply-btn{
+.apply-btn {
   font-family: "Ordina Wide Regular", sans-serif;
 }
-
 
 .active::before {
   visibility: visible;
   transform: scaleX(1);
 }
 
-
-
 @media (max-width: 1350px) {
-  .container{
-    padding: 0 50px!important;
+  .container {
+    padding: 0 50px !important;
   }
 
-  .about-section{
-    padding-left: 50px!important;
-    padding-right: 50px!important;
+  .about-section {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
   }
+}
 
+@media (max-width: 1280px) {
+  .nav-link {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 1024px) {
-  .nav-link{
+  .nav-link {
     font-size: 12px;
   }
 }
 
 @media (max-width: 900px) {
-  .container{
-    padding: 0 20px!important;
+  .container {
+    padding: 0 20px !important;
   }
 
-  .about-section{
-    padding-left: 20px!important;
-    padding-right: 20px!important;
+  .about-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
-
-
-  
 }
 
 @media (max-width: 768px) {
-  .title{
+  .title {
     font-size: 30px;
   }
 }
 
-
 @keyframes hue-rotate {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
-

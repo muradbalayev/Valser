@@ -1,5 +1,6 @@
 import './App.css'
 import RouterApp from './pages/RouterApp'
+import { LanguageProvider } from './context/languageContext'
 // import Lenis from 'lenis'
 
 
@@ -44,7 +45,9 @@ function App() {
 
   
   return (
+    <LanguageProvider>
       <RouterApp />
+    </LanguageProvider>
   )
 }
 

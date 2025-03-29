@@ -5,9 +5,14 @@ import { FiUser, FiMail, FiPhone, FiBook } from "react-icons/fi";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useCourseApplyMutation } from "@/redux/misc/courseApplyApi";
+import { useContext } from "react";
+import { LanguageContext } from "@/context/languageContext";
+import translations from '../../translations.json'
 
 export default function ApplyModal({ isOpen, onClose }) {
   const [courseApply, { isLoading }] = useCourseApplyMutation();
+
+  const { language } = useContext(LanguageContext);
 
   const [data, setData] = useState({
     fullName: "",
@@ -153,10 +158,10 @@ export default function ApplyModal({ isOpen, onClose }) {
               {/* Header with black text */}
               <div className="text-center mb-8">
                 <h2 className="sm:text-3xl text-2xl font-bold mb-2 text-red-800 dark:text-white ordina-medium ">
-                  Müraciət Formu
+                  {translations[language]["apply-form"]}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 sm:text-base text-sm">
-                  Məlumatları doldurun, biz sizinlə əlaqə saxlayaq
+                  {translations[language]["form-desc"]}
                 </p>
               </div>
 
@@ -173,7 +178,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     onChange={handleChange}
                     required
                     className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
-                    placeholder="Ad və Soyadınız"
+                    placeholder={translations[language]["fullname"]}
                   />
                 </div>
 
@@ -189,7 +194,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                     onChange={handleChange}
                     required
                     className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white transition-all duration-200"
-                    placeholder="E-mail ünvanınız"
+                    placeholder={translations[language]["email"]}
                   />
                 </div>
 
@@ -227,15 +232,12 @@ export default function ApplyModal({ isOpen, onClose }) {
                     className="w-full pl-10 pr-4 py-3 outline-none border border-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-0 dark:bg-gray-900 dark:text-white appearance-none transition-all duration-200"
                   >
                     <option value="" disabled>
-                      Xidməti seçin
+                      {translations[language]["select"]}
                     </option>
-                    <option value="muessise">Müəssisələrin hüquqi müşayiəti</option>
-                    <option value="muqavile">Müqavilələrin hazırlanması</option>
-                    <option value="emek">Əmək münasibətlərinin tənzimlənməsi</option>
-                    <option value="mehkeme">Məhkəmə və arbitraj işlərində təmsilçilik</option>
-                    <option value="korporativ">Korporativ və vergi hüququ</option>
-                    <option value="muhasibat">Mühasibatlıq xidmətləri</option>
-                    <option value="other">Digər</option>
+                    <option value="muessise">{translations[language]["service-1"]}</option>
+                    <option value="muqavile">{translations[language]["service-2"]}</option>
+                    <option value="emek">{translations[language]["service-3"]}</option>
+                    <option value="other">{translations[language]["other"]}</option>
                   </select>
                 </div>
 
@@ -251,10 +253,10 @@ export default function ApplyModal({ isOpen, onClose }) {
                 >
                   {isLoading ? (
                     <div className="flex w-full items-center justify-center gap-2">
-                      Göndərilir... 
+                      Sending... 
                     </div>
                   ) : (
-                    "Müraciət Et"
+                    translations[language]["apply"]
                   )}
                 </motion.button>
               </form>
