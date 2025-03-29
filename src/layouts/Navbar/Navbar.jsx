@@ -379,7 +379,7 @@ export default function Navbar() {
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
-                transition={{ ease: [0.25, 1, 0.5, 1], duration: 1 }}
+                transition={{ ease: [0.25, 1, 0.5, 1], duration: 0.7 }}
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
