@@ -375,11 +375,11 @@ export default function Navbar() {
           <AnimatePresence>
             {isMenuOpen && (
               <motion.div
-                className="fixed top-[0px] right-0 bottom-0 w-[90%] max-w-sm bg-white dark:bg-gray-900 shadow-xl z-[60] md:hidden overflow-y-auto"
+                className="fixed top-[0px] right-0 bottom-0 w-[80%]  bg-white dark:bg-gray-900 shadow-xl z-[60] md:hidden overflow-y-auto"
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                transition={{ ease: [0.25, 1, 0.5, 1], duration: 1 }}
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
@@ -487,12 +487,12 @@ export default function Navbar() {
                       </button>
                     </motion.div>
                     <div
-              className="lang-switcher mx-auto flex justify-center xl:min-w-[100px] p-2 hover:bg-red-800 backdrop-blur-sm "
+              className="lang-switcher mx-auto flex justify-center xl:min-w-[100px] p-2 backdrop-blur-sm "
             >
               {filteredLanguages.map((lang) => (
                 <button
                   key={lang.code}
-                  className={`text-white xl:text-sm text-sm font-medium xl:px-2 px-1 first:border-e hover:text-green transition-colors`}
+                  className={`xl:text-sm text-sm font-medium px-3 first:border-e border-gray-400 transition-colors`}
                   onClick={() => handleLanguageChange(lang.code)}
                 >
                   {lang.label}
