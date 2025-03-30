@@ -1,7 +1,6 @@
 import {  useContext, useEffect, useState } from "react";
 import {
   FaInstagram,
-  FaLinkedin,
   FaFacebook,
 } from "react-icons/fa";
 
@@ -508,14 +507,14 @@ export default function Navbar() {
                       <a
                         aria-label="instagram"
                         title="Instagram"
-                        href="https://www.instagram.com/"
+                        href="https://www.instagram.com/valser.az"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
                       >
                         <FaInstagram size={22} />
                       </a>
-                      <a
+                      {/* <a
                         aria-label="linkedin"
                         title="Linkedin"
                         href="https://www.linkedin.com/"
@@ -524,11 +523,11 @@ export default function Navbar() {
                         className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
                       >
                         <FaLinkedin size={22} />
-                      </a>
+                      </a> */}
                       <a
                         aria-label="facebook"
                         title="Facebook"
-                        href="https://www.facebook.com/"
+                        href="https://www.facebook.com/people/Valseraz/61574650327004"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-800 transition-colors"
