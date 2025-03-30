@@ -40,7 +40,10 @@ const Footer = () => {
           <div className="mt-8 md:mt-0">
             <div className="flex items-center mb-3">
               <FiPhone className="mr-3 text-gray-400" />
-              <a href="tel:+994501234567" className="hover:text-gray-300 transition-colors">+994 50 123 45 67</a>
+              <div className='flex flex-col'>
+                <a href="tel:+994501234567" className="hover:text-gray-300 transition-colors">+994 10 395 43 93</a>
+                <a href="tel:+994125308149" className="hover:text-gray-300 transition-colors">+994 12 530 81 49</a>
+              </div>
             </div>
             <div className="flex items-center mb-3">
               <FiMail className="mr-3 text-gray-400" />
@@ -48,7 +51,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center">
               <FiMapPin className="mr-3 text-gray-400" />
-              <span>Bakı şəhəri, Nərimanov rayonu</span>
+              <span>Moskva prospekti 3001 / Oskar Biznes Mərkəzi</span>
             </div>
           </div>
         </div>

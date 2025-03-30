@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import { useContext, useRef } from "react";
 
@@ -14,9 +14,16 @@ export default function HeroSection() {
     offset: ["start start", "end start"]
   });
 
+  const smoothScrollYProgress = useSpring(scrollYProgress, {
+    stiffness: 400,
+    damping: 90,
+    restDelta: 0.001
+  });
+  
+  
   // Create transform values based on scroll progress - move slower than scroll for parallax
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  // const backgroundY = useTransform(smoothScrollYProgress, [0, 1], ["0%", "50%"]);
+  const scale = useTransform(smoothScrollYProgress, [0, 1], [1, 1.2]);
 
   
 
@@ -44,7 +51,7 @@ export default function HeroSection() {
 
 
   return (
-    <section ref={sectionRef} className="relative lg:pt-0 pt-20 min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#26343D] lg:pt-0 pt-20 min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image with parallax effect */}
       <motion.div 
       initial={{ scale: 1.2 }}
@@ -55,8 +62,8 @@ export default function HeroSection() {
           backgroundImage: `url(${test})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          // We're removing backgroundAttachment: "fixed" to allow our custom parallax
-          y: backgroundY,
+          backgroundRepeat: "repeat",
+          // y: backgroundY,
           scale: scale
         }}
       />

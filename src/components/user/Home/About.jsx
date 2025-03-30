@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   FaBalanceScale,
   FaBuilding,
@@ -40,42 +40,49 @@ const About = () => {
       : ["start end", "end start"],
   });
 
+  const smoothScrollYProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+    restDelta: 0.001
+  });
+  
+
   // Create transform values based on scroll progress with smoother easing
   // On mobile, make animations trigger earlier
   const imageX = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.3] : [0, 0.5],
     [100, 0]
   );
   const imageOpacity = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.2] : [0, 0.3],
     [0, 1]
   );
   const imageScale = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.3] : [0, 0.5],
     [0.9, 1]
   );
   const imageRotate = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.3] : [0, 0.5],
     [2, 0]
   );
 
   // Text animation values based on scroll progress
   const textX = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.3] : [0, 0.5],
     [-100, 0]
   );
   const textOpacity = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.2] : [0, 0.3],
     [0, 1]
   );
   const textScale = useTransform(
-    scrollYProgress,
+    smoothScrollYProgress,
     isMobile ? [0, 0.3] : [0, 0.5],
     [0.9, 1]
   );

@@ -62,7 +62,7 @@ export default function Services() {
               viewport={{ once: true }}
               className="h-full group"
             >
-              <div className="h-full flex flex-col bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:border-[#AC8968] dark:hover:border-white transition-all duration-300">
+              <div className="h-full flex flex-col bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800  p-6 hover:border-[#AC8968] dark:hover:border-white transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="bg-red-800 dark:bg-white text-white dark:text-black p-3 rounded-lg mr-4">
                     {service.icon}

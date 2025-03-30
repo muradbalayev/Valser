@@ -156,15 +156,15 @@ const ContactPage = () => {
             "name": "Valser MMC",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Bakı şəhəri, Nərimanov rayonu",
+              "streetAddress": "Moskva prospekti 3001 / Oskar Biznes Mərkəzi",
               "addressLocality": "Bakı",
               "addressCountry": "AZ"
             },
             "telephone": [
-              "+994 55 123 45 67",
-              "+994 50 123 45 67"
+              "+994 10 395 43 93",
+              "+994 12 530 81 49"
             ],
-            "email": "info@valsermmc.az",
+            "email": "info@valser.az",
             "url": "https://valsermmc.az",
             "openingHours": "Mo-Fr 09:00-18:00"
           })}
@@ -325,20 +325,20 @@ const ContactPage = () => {
                   {translations[language]["contact-info"]}
                 </h2>
                 <div className="space-y-6">
-                  <div className="flex items-start text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300">
                     <FaPhone className="mr-3 mt-1 text-red-800" />
                     <div>
-                      <p>+994 55 123 45 67</p>
-                      <p>+994 50 123 45 67</p>
+                      <p>+994 10 395 43 93</p>
+                      <p>+994 12 530 81 49</p>
                     </div>
                   </div>
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
                     <FaEnvelope className="mr-3 mt-1 text-red-800" /> 
                     <span>info@valsermmc.az</span>
                   </div>
-                  <div className="flex items-start text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center  text-gray-600 dark:text-gray-300">
                     <FaMapMarkerAlt className="mr-3 mt-1 text-red-800" /> 
-                    <span>Bakı şəhəri, Nərimanov rayonu</span>
+                    <span>Moskva prospekti 3001 / Oskar Biznes Mərkəzi</span>
                   </div>
                   <div className="flex items-start text-gray-600 dark:text-gray-300">
                     <FaBuilding className="mr-3 mt-1 text-red-800" /> 
@@ -349,7 +349,7 @@ const ContactPage = () => {
 
               <div className="w-full h-80  overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24304.85733909328!2d49.83367032646481!3d40.39738499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d7c3df5e7e1%3A0x1c35c11e0bea6430!2sN%C9%99rimanov%2C%20Baku%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1711633004254!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d906.9762543200358!2d49.81158365144752!3d40.39954767342197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403087785ac400a5%3A0xaf840f9e1b853bb8!2sOskar%20Business%20center!5e1!3m2!1str!2saz!4v1743338357635!5m2!1str!2saz"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
