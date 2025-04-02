@@ -18,7 +18,6 @@ import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet";
 import { LanguageContext } from "@/context/languageContext";
 import translations from "../../translations.json";
-import attestation from "../../assets/images/attestation.jpg";
 import attestationMark from "../../assets/images/attestationMark2.png";
 
 export default function ServicePage() {
