@@ -76,6 +76,23 @@
   font-size: 36px;
 }
 
+table{
+  font-family: "Poppins", sans-serif;
+}
+
+
+table th{
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+}
+
+table td{
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+}
+
+
+
 .apply-modal {
   top: 50% !important;
   left: 50% !important;
