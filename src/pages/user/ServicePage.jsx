@@ -340,7 +340,7 @@ export default function ServicePage() {
                     ))}
                   </div>
                 </div>
-
+{service.slug === 'attestasiya' && (
                 <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                   <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                     Akkredasiya Sahəsi
@@ -410,6 +410,7 @@ export default function ServicePage() {
                     </div>
                   </div>
                 </div>
+)}
 
                 {/* Process */}
 
