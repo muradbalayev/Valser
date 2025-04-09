@@ -45,33 +45,35 @@ const Footer = () => {
             <div className="flex items-center mb-3">
               <FiPhone className="mr-3 text-gray-400" />
               <div className="flex flex-col">
-                <a
-                  href="tel:+994501234567"
+                <p
                   className="hover:text-gray-300 transition-colors"
                 >
                   +994 10 395 43 93
-                </a>
-                <a
-                  href="tel:+994125308149"
+                </p>
+                <p
                   className="hover:text-gray-300 transition-colors"
                 >
                   +994 12 530 81 49
-                </a>
+                </p>
               </div>
             </div>
             <div className="flex items-center mb-3">
               <FiMail className="mr-3 text-gray-400" />
               <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href="mailto:info@valser.az"
                 className="hover:text-gray-300 transition-colors"
               >
                 info@valser.az
               </a>
             </div>
-            <div className="flex items-center">
+            <a target="_blank"
+              rel="noopener noreferrer"
+              href="https://maps.app.goo.gl/sNuYbqMW2jvo4aom7" className="flex items-center">
               <FiMapPin className="mr-3 text-gray-400" />
               <span>Moskva prospekti 3001 / Oskar Biznes Mərkəzi</span>
-            </div>
+            </a>
           </div>
         </div>
 
