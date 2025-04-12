@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { FaBalanceScale, FaBuilding, FaFileContract } from 'react-icons/fa';
+import { FaBalanceScale, FaBook, FaBuilding, FaFileContract } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import translations from "../../../translations.json";
 import { LanguageContext } from "@/context/languageContext";
@@ -16,21 +16,28 @@ export default function Services() {
       title: translations[language]["service-1"],
       description: translations[language]["service-1-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "attestasiya"
+      slug: "attestation"
     },
     {
       id: 2,
       title: translations[language]["service-2"],
       description: translations[language]["service-2-desc"],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muhasibatliq"
+      slug: "accounting",
     },
     {
       id: 3,
       title: translations[language]["service-3"],
       description: translations[language]["service-3-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "huquqi-xidmetler"
+      slug: "legal-services"
+    },
+    {
+      id: 4,
+      title: translations[language]["service-4"],
+      description: translations[language]["service-4-desc"],
+      icon: <FaBook className="w-12 h-12" />,
+      slug: "accreditiation-attestation"
     }
   ];
 

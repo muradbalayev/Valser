@@ -120,7 +120,7 @@ const Footer = () => {
             <ul className="space-y-2 sm:text-start text-center">
               <li>
                 <Link
-                  to="/service/huquqi-musayiet"
+                  to="/service/attestation"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   {translations[language]["service-1"]}
@@ -128,7 +128,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/service/muqavilelerin-hazirlanmasi"
+                  to="/service/accounting"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   {translations[language]["service-2"]}
@@ -136,36 +136,13 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/service/emek-munasibetleri"
+                  to="/service/legal-services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   {translations[language]["service-3"]}
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/service/mehkeme-temsilciliyi"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {translations[language]["service-4"]}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/service/korporativ-huquq"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {translations[language]["service-5"]}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/service/muhasibatliq-xidmetleri"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {translations[language]["service-6"]}
-                </Link>
-              </li>
+        
             </ul>
           </div>
 

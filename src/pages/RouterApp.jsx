@@ -17,6 +17,13 @@ import { Toaster } from "react-hot-toast";
 import LoadingScreen from "@/components/LoadingScreen";
 import ServicePage from "./user/ServicePage";
 
+import AdminLayout from "@/layouts/AdminLayout";
+import LoginPage from "./admin/LoginPage";
+import ProtectedAdminRoute from "@/utils/ProtectedAdminRoute";
+import PublicRoute from "@/utils/PublicRoute";
+// import PublicRoute from "utils/PublicRoute";
+// import ProtectedAdminRoute from "utils/ProtectedAdminRoute";
+
 const RouterApp = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
@@ -45,18 +52,10 @@ const RouterApp = () => {
 
 
   const scrollToTop = () => {
-    // Use the Lenis instance if available, otherwise fallback to standard scrollTo
-    // if (window.lenis) {
-    //   window.lenis.scrollTo(0, { 
-    //     duration: 1.2,
-    //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Match the same easing as defined in App.jsx
-    //   });
-    // } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    // }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
@@ -205,8 +204,8 @@ function AuthInitializer() {
   return (
       <Routes>
         {/* Admin Routes */}
-        {/* <Route
-          path="/admin/lgn-evo-scrt"
+        <Route
+          path="/admin/lgn-valser-scrt"
           element={
             <PublicRoute>
               <LoginPage />
@@ -216,22 +215,14 @@ function AuthInitializer() {
         <Route
           path="/admin/dashboard"
           element={
-            <ProtectedAdminRoute requiredRole="admin">
+             <ProtectedAdminRoute requiredRole="admin">
               <AdminLayout />
-            </ProtectedAdminRoute>
+             </ProtectedAdminRoute>
           }
         >
-          <Route path="" element={<AdminInstructorsPage />} />
-          <Route path="courses" element={<AdminCoursesPage />} />
-          <Route path="graduates" element={<AdminGraduatesPage />} />
-          <Route path="events" element={<AdminEventPage />} />
-          <Route path="vacancies" element={<AdminVacanciesPage />} />
-          <Route path="blogs" element={<AdminBlogPage />} />
-          <Route path="blogs/:blogId" element={<AdminBlogDetail />} />
-          <Route path="applies" element={<AdminAppliesPage />} />
-          <Route path="diplomas" element={<AdminDiplomaPage/> }/>
-          <Route path="partners" element={<AdminPartnersPage />} />
-        </Route> */}
+          {/* <Route path="" element={<AdminApplicationsPage />} /> */}
+
+        </Route>
 
         {/* User Routes */}
         <Route

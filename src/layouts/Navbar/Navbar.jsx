@@ -1,8 +1,5 @@
-import {  useContext, useEffect, useState } from "react";
-import {
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import { FaInstagram, FaFacebook, FaBook } from "react-icons/fa";
 
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,15 +10,10 @@ import whiteLogo from "../../assets/logos/valserWhite.png";
 // import logoBlack from "../../assets/logos/logoBlack.png";
 import ApplyModal from "@/components/modals/ApplyModal";
 import { RiCloseLargeFill, RiMenuLine } from "react-icons/ri";
-import {
-  FaBalanceScale,
-  FaBuilding,
-  FaFileContract,
-} from "react-icons/fa";
+import { FaBalanceScale, FaBuilding, FaFileContract } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
-import translations from '../../translations.json'
-import { LanguageContext } from '../../context/languageContext'
-
+import translations from "../../translations.json";
+import { LanguageContext } from "../../context/languageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +39,6 @@ export default function Navbar() {
   ];
 
   const filteredLanguages = languages.filter((lang) => lang?.code !== language);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,24 +73,31 @@ export default function Navbar() {
   const services = [
     {
       id: 1,
-      title: translations[language]['service-1'],
-      description: translations[language]['service-1-desc'],
+      title: translations[language]["service-1"],
+      description: translations[language]["service-1-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "attestasiya"
+      slug: "attestation",
     },
     {
       id: 2,
-      title: translations[language]['service-2'],
-      description: translations[language]['service-2-desc'],
+      title: translations[language]["service-2"],
+      description: translations[language]["service-2-desc"],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muhasibatliq"
+      slug: "accounting",
     },
     {
       id: 3,
-      title: translations[language]['service-3'],
-      description: translations[language]['service-3-desc'],
+      title: translations[language]["service-3"],
+      description: translations[language]["service-3-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "huquqi-xidmetler"
+      slug: "legal-services",
+    },
+    {
+      id: 4,
+      title: translations[language]["service-4"],
+      description: translations[language]["service-4-desc"],
+      icon: <FaBook className="w-12 h-12" />,
+      slug: "accreditiation-attestation",
     },
   ];
 
@@ -121,30 +119,30 @@ export default function Navbar() {
           >
             <img
               src={
-                !isScrolled && isHomePage && !isMenuOpen
-                  ? whiteLogo
-                  : darkLogo
+                !isScrolled && isHomePage && !isMenuOpen ? whiteLogo : darkLogo
               }
               alt="logo"
               className=" w-full h-full object-contain"
             />
-              
           </Link>
-            <div className="md:hidden flex items-center justify-center gap-2"> 
-          <button
-            onClick={toggleMenu}
-            type="button"
-            className="flex items-center p-2  h-12 w-12 justify-center text-sm rounded-lg "
-            aria-controls="navbar-sticky"
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">Open main menu</span>
-            {isMenuOpen  ? (
-              <RiCloseLargeFill className="text-black"  size={24} />
-            ) : (
-              <RiMenuLine className={` ${isScrolled ? "text-black" : "text-white"}`} size={24} />
-            )}
-          </button>
+          <div className="md:hidden flex items-center justify-center gap-2">
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="flex items-center p-2  h-12 w-12 justify-center text-sm rounded-lg "
+              aria-controls="navbar-sticky"
+              aria-expanded={isMenuOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <RiCloseLargeFill className="text-black" size={24} />
+              ) : (
+                <RiMenuLine
+                  className={` ${isScrolled ? "text-black" : "text-white"}`}
+                  size={24}
+                />
+              )}
+            </button>
           </div>
 
           {/* Desktop Menu */}
@@ -164,8 +162,8 @@ export default function Navbar() {
                         : "text-white dark:text-white"
                     } `}
                 >
-              {translations[language]["homepage"]}
-              </Link>
+                  {translations[language]["homepage"]}
+                </Link>
               </li>
               <Menu setActive={setActive}>
                 <div>
@@ -217,31 +215,28 @@ export default function Navbar() {
                 </Link>
               </li>
               <div className="flex items-center justify-center gap-4">
-              <li
-                onClick={openModal}
-                className={`apply-btn uppercase text-white dark:text-black bg-red-800 hover:bg-red-900 block cursor-pointer xl:text-sm lg:text-[13px] text-xs shadow-lg  transition-all duration-300 xl:px-9 xl:py-4 lg:px-7 lg:py-4 px-4  py-3`}
-              >
-                {translations[language]["apply"]}
-              </li>
-              <div
-              className="lang-switcher group flex justify-center xl:min-w-[100px] p-1  hover:bg-red-800 backdrop-blur-sm "
-            >
-              {filteredLanguages.map((lang) => (
-                <button
-                  key={lang.code}
-                  className={` xl:text-sm text-xs font-medium xl:px-2 px-1 first:border-e transition-colors ${
-                    isScrolled || !isHomePage || isMenuOpen
-                      ? " text-black  border-black group-hover:text-white group-hover:border-white"
-                      : "text-white  border-white"
-                  }`}
-                  onClick={() => handleLanguageChange(lang.code)}
+                <li
+                  onClick={openModal}
+                  className={`apply-btn uppercase text-white dark:text-black bg-red-800 hover:bg-red-900 block cursor-pointer xl:text-sm lg:text-[13px] text-xs shadow-lg  transition-all duration-300 xl:px-9 xl:py-4 lg:px-7 lg:py-4 px-4  py-3`}
                 >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-            </div>
-
+                  {translations[language]["apply"]}
+                </li>
+                <div className="lang-switcher group flex justify-center xl:min-w-[100px] p-1  hover:bg-red-800 backdrop-blur-sm ">
+                  {filteredLanguages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      className={` xl:text-sm text-xs font-medium xl:px-2 px-1 first:border-e transition-colors ${
+                        isScrolled || !isHomePage || isMenuOpen
+                          ? " text-black  border-black group-hover:text-white group-hover:border-white"
+                          : "text-white  border-white"
+                      }`}
+                      onClick={() => handleLanguageChange(lang.code)}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </ul>
           </div>
 
@@ -270,26 +265,35 @@ export default function Navbar() {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-semibold text-red-800">{translations[language]["menu"]}</h3>
-                    <button 
+                    <h3 className="text-xl font-semibold text-red-800">
+                      {translations[language]["menu"]}
+                    </h3>
+                    <button
                       onClick={toggleMenu}
                       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     >
-                      <RiCloseLargeFill className="text-gray-800 dark:text-gray-200" size={24} />
+                      <RiCloseLargeFill
+                        className="text-gray-800 dark:text-gray-200"
+                        size={24}
+                      />
                     </button>
                   </div>
                   <div className="flex flex-col space-y-6">
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.1 }}
                       className="border-b border-gray-200 dark:border-gray-700 pb-6"
                     >
-                      <div 
+                      <div
                         className="flex items-center justify-between cursor-pointer py-2 px-3 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors mb-2"
-                        onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                        onClick={() =>
+                          setServicesDropdownOpen(!servicesDropdownOpen)
+                        }
                       >
-                        <h3 className="text-lg font-semibold text-red-800">{translations[language]["services"]}</h3>
+                        <h3 className="text-lg font-semibold text-red-800">
+                          {translations[language]["services"]}
+                        </h3>
                         <motion.div
                           animate={{ rotate: servicesDropdownOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
@@ -297,10 +301,10 @@ export default function Navbar() {
                           <FaChevronDown className="text-red-800" />
                         </motion.div>
                       </div>
-                      
+
                       <AnimatePresence>
                         {servicesDropdownOpen && (
-                          <motion.div 
+                          <motion.div
                             className="space-y-3 pl-3 mt-2"
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
@@ -327,8 +331,8 @@ export default function Navbar() {
                         )}
                       </AnimatePresence>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
@@ -356,8 +360,8 @@ export default function Navbar() {
                         {translations[language]["contact"]}
                       </Link>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4 }}
@@ -373,20 +377,18 @@ export default function Navbar() {
                         {translations[language]["apply"]}
                       </button>
                     </motion.div>
-                    <div
-              className="lang-switcher mx-auto flex justify-center xl:min-w-[100px] p-2 backdrop-blur-sm "
-            >
-              {filteredLanguages.map((lang) => (
-                <button
-                  key={lang.code}
-                  className={`xl:text-sm text-sm font-medium px-3 first:border-e border-gray-400 transition-colors`}
-                  onClick={() => handleLanguageChange(lang.code)}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-                    <motion.div 
+                    <div className="lang-switcher mx-auto flex justify-center xl:min-w-[100px] p-2 backdrop-blur-sm ">
+                      {filteredLanguages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          className={`xl:text-sm text-sm font-medium px-3 first:border-e border-gray-400 transition-colors`}
+                          onClick={() => handleLanguageChange(lang.code)}
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </div>
+                    <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}

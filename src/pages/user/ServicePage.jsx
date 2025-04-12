@@ -19,6 +19,7 @@ import { Helmet } from "react-helmet";
 import { LanguageContext } from "@/context/languageContext";
 import translations from "../../translations.json";
 import attestationMark from "../../assets/images/attestationMark2.png";
+import azak from '../../assets/images/azak.png'
 
 export default function ServicePage() {
   const { serviceSlug } = useParams();
@@ -37,7 +38,7 @@ export default function ServicePage() {
       description: translations[language]["service-1-desc"],
       fullDescription: translations[language]["service-1-full-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
-      slug: "attestasiya",
+      slug: "attestation",
       benefits: [
         translations[language]["service-1-benefit-1"],
         translations[language]["service-1-benefit-2"],
@@ -77,7 +78,7 @@ export default function ServicePage() {
       description: translations[language]["service-2-desc"],
       fullDescription: translations[language]["service-2-full-desc"],
       icon: <FaFileContract className="w-12 h-12" />,
-      slug: "muhasibatliq",
+      slug: "accounting",
       benefits: [
         translations[language]["service-2-benefit-1"],
         translations[language]["service-2-benefit-2"],
@@ -117,7 +118,7 @@ export default function ServicePage() {
       description: translations[language]["service-3-desc"],
       fullDescription: translations[language]["service-3-full-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
-      slug: "huquqi-xidmetler",
+      slug: "legal-services",
       benefits: [
         translations[language]["service-3-benefit-1"],
         translations[language]["service-3-benefit-2"],
@@ -149,6 +150,46 @@ export default function ServicePage() {
         translations[language]["service-3-tag-3"],
         translations[language]["service-3-tag-4"],
         translations[language]["service-3-tag-5"],
+      ],
+    },
+    {
+      id: 4,
+      title: translations[language]["service-4"],
+      description: translations[language]["service-4-desc"],
+      fullDescription: translations[language]["service-4-full-desc"],
+      icon: <FaBalanceScale className="w-12 h-12" />,
+      slug: "accreditiation-attestation",
+      benefits: [
+        translations[language]["service-4-benefit-1"],
+        translations[language]["service-4-benefit-2"],
+        translations[language]["service-4-benefit-3"],
+        translations[language]["service-4-benefit-4"],
+        translations[language]["service-4-benefit-5"],
+      ],
+      process: [
+        {
+          title: translations[language]["service-4-process-1-title"],
+          description: translations[language]["service-4-process-1-desc"],
+        },
+        {
+          title: translations[language]["service-4-process-2-title"],
+          description: translations[language]["service-4-process-2-desc"],
+        },
+        {
+          title: translations[language]["service-4-process-3-title"],
+          description: translations[language]["service-4-process-3-desc"],
+        },
+        {
+          title: translations[language]["service-4-process-4-title"],
+          description: translations[language]["service-4-process-4-desc"],
+        },
+      ],
+      tags: [
+        translations[language]["service-4-tag-1"],
+        translations[language]["service-4-tag-2"],
+        translations[language]["service-4-tag-3"],
+        translations[language]["service-4-tag-4"],
+        translations[language]["service-4-tag-5"],
       ],
     },
   ];
@@ -324,6 +365,67 @@ export default function ServicePage() {
                   </div>
                 </div>
 
+                {service.slug === "accreditiation-attestation" && (
+                <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+                    <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                      AKKREDİTASİYA NİŞANI
+                    </h2>
+                    <div className="mt-6">
+                      <div className="max-w-xl mx-auto">
+                        <div className="text-center mb-6">
+                        <div className="w-[50%] mx-auto">
+                            <img
+                              src={azak}
+                              alt="Akkreditasiya sahəsi"
+                              className="w-full h-auto object-contain"
+                            />
+                          </div>
+                          <div className="text-sm text-left space-y-4 mt-4">
+                            <p>1. Akkreditasiya edilmiş uyğunluğu qiymətləndirən qurum tərəfindən akkreditasiya nişanından fəaliyyət sahəsinə uyğun istifadə edilməlidir. (Azərbaycan Respublikasının İnzibati Xətalar Məcəlləsi maddə 538-1.2)</p>
+                            <p>2. Akkreditasiya edilmiş uyğunluğu qiymətləndirən qurum tərəfindən akkreditasiya nişanından istifadə qaydası Azərbaycan Respublikası Nazirlər Kabinetinin 2 iyul 2015-ci il tarixli 252 nömrəli qərarı ilə təsdiq edilmişdir.</p>
+                            <p>3. Akkreditasiya edilmiş uyğunluğu qiymətləndirən qurum tərəfindən akkreditasiya nişanından istifadə qaydası AzAK-ın accreditation.gov.az rəsmi internet səhifəsində yerləşdirilmişdir.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                )}
+                
+                {service.slug === "accreditiation-attestation" && (
+                <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+
+                    <div className="mt-6">
+                      <div className="max-w-xl mx-auto">
+                        {/* Title at the top */}
+                        <div className="text-center mb-3">
+                          <p className="text-gray-800 poppins dark:text-gray-200 font-medium">
+                            Attestat akkreditasiya sahəsi ilə birgə etibarlıdır.
+                          </p>
+                        </div>
+
+                        {/* Seal and signature with name on the right */}
+                        <div className="flex flex-col md:flex-row items-center justify-center">
+                          <div className="max-w-[300px]">
+                            <img
+                              src={attestationMark}
+                              alt="Attestat akkreditasiya sahəsi"
+                              className="w-full h-auto object-contain"
+                            />
+                          </div>
+                          <div className="md:ml-4 mt-2 md:mt-0 text-left md:self-end md:mb-8">
+                            <p className="font-bold text-gray-900 dark:text-white">
+                              Emin Zeynalov
+                            </p>
+                            <p className="text-gray-700 dark:text-gray-300">
+                              Direktor
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                )}
+
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                   <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                     {translations[language]["service-advantages"]}
@@ -339,77 +441,84 @@ export default function ServicePage() {
                     ))}
                   </div>
                 </div>
-{service.slug === 'attestasiya' && (
-                <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
-                    Akkredasiya Sahəsi
-                  </h2>
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full border-collapse border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                      <thead className="bg-gray-50 dark:bg-gray-800">
-                        <tr>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                            İnspeksiya olunan məhsulun adı
-                          </th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                            İnspeksiya prosedurunun adı
-                          </th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                            İnspeksiya metodu üçün NS
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white dark:bg-black divide-y divide-gray-200 dark:divide-gray-700">
-                        {tableData.map((item, index) => (
-                          <tr
-                            key={index}
-                            className={`hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors ${
-                              index % 2 === 0
-                                ? "bg-white dark:bg-black"
-                                : "bg-gray-50 dark:bg-gray-900"
-                            }`}
-                          >
-                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                              {item.name}
-                            </td>
-                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                              {item.processName}
-                            </td>
-                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                              {item.method}
-                            </td>
+
+  
+
+                {service.slug === "attestation" && (
+                  <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+                    <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                      Akkredasiya Sahəsi
+                    </h2>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full border-collapse border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                        <thead className="bg-gray-50 dark:bg-gray-800">
+                          <tr>
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                              İnspeksiya olunan məhsulun adı
+                            </th>
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                              İnspeksiya prosedurunun adı
+                            </th>
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                              İnspeksiya metodu üçün NS
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="mt-6">
-                    <div className="max-w-xl mx-auto">
-                      {/* Title at the top */}
-                      <div className="text-center mb-3">
-                        <p className="text-gray-800 poppins dark:text-gray-200 font-medium">
-                          Attestat akkreditasiya sahəsi ilə birgə etibarlıdır.
-                        </p>
-                      </div>
-                      
-                      {/* Seal and signature with name on the right */}
-                      <div className="flex flex-col md:flex-row items-center justify-center">
-                        <div className="max-w-[300px]">
-                          <img
-                            src={attestationMark}
-                            alt="Attestat akkreditasiya sahəsi"
-                            className="w-full h-auto object-contain"
-                          />
+                        </thead>
+                        <tbody className="bg-white dark:bg-black divide-y divide-gray-200 dark:divide-gray-700">
+                          {tableData.map((item, index) => (
+                            <tr
+                              key={index}
+                              className={`hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors ${
+                                index % 2 === 0
+                                  ? "bg-white dark:bg-black"
+                                  : "bg-gray-50 dark:bg-gray-900"
+                              }`}
+                            >
+                              <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
+                                {item.name}
+                              </td>
+                              <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
+                                {item.processName}
+                              </td>
+                              <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
+                                {item.method}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="mt-6">
+                      <div className="max-w-xl mx-auto">
+                        {/* Title at the top */}
+                        <div className="text-center mb-3">
+                          <p className="text-gray-800 poppins dark:text-gray-200 font-medium">
+                            Attestat akkreditasiya sahəsi ilə birgə etibarlıdır.
+                          </p>
                         </div>
-                        <div className="md:ml-4 mt-2 md:mt-0 text-left md:self-end md:mb-8">
-                          <p className="font-bold text-gray-900 dark:text-white">Emin Zeynalov</p>
-                          <p className="text-gray-700 dark:text-gray-300">Direktor</p>
+
+                        {/* Seal and signature with name on the right */}
+                        <div className="flex flex-col md:flex-row items-center justify-center">
+                          <div className="max-w-[300px]">
+                            <img
+                              src={attestationMark}
+                              alt="Attestat akkreditasiya sahəsi"
+                              className="w-full h-auto object-contain"
+                            />
+                          </div>
+                          <div className="md:ml-4 mt-2 md:mt-0 text-left md:self-end md:mb-8">
+                            <p className="font-bold text-gray-900 dark:text-white">
+                              Emin Zeynalov
+                            </p>
+                            <p className="text-gray-700 dark:text-gray-300">
+                              Direktor
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-)}
+                )}
 
                 {/* Process */}
 
