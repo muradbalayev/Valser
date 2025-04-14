@@ -19,8 +19,9 @@ import { Helmet } from "react-helmet";
 import { LanguageContext } from "@/context/languageContext";
 import translations from "../../translations.json";
 import attestationMark from "../../assets/images/attestationMark2.png";
-import azak from '../../assets/images/azak.png'
-
+import azak from "../../assets/images/azak.png";
+import akkredasiyasahesi from "../../assets/images/akkredasiyasahesi.png";
+import nisan from "../../assets/images/nisan.png";
 export default function ServicePage() {
   const { serviceSlug } = useParams();
   const [openSyllabus, setOpenSyllabus] = useState({});
@@ -337,7 +338,7 @@ export default function ServicePage() {
                 >
                   {service.icon}
                 </motion.div>
-                <motion.h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
+                <motion.h1 className="sm:text-3xl text-xl font-bold text-center text-gray-900 dark:text-white mb-4">
                   {translations[language][`service-${service.id}`]}
                 </motion.h1>
               </motion.div>
@@ -354,18 +355,37 @@ export default function ServicePage() {
                 }}
                 className="grid grid-cols-1 gap-8"
               >
-                <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
-                    {translations[language]["service-about"]}
-                  </h2>
-                  <div className="space-y-4">
-                    <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
-                      {service.fullDescription}
-                    </p>
+                {service.slug !== "attestation" && (
+                  <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+                    <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                      {translations[language]["service-about"]}
+                    </h2>
+                    <div className="space-y-4">
+                      <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
+                        {service.fullDescription}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
+                )}
                 {service.slug === "attestation" && (
+                  <div>
+                    <img
+                      src={akkredasiyasahesi}
+                      className="object-contain h-auto mx-auto rounded-lg"
+                      alt=""
+                    />
+                  </div>
+                )}
+                {service.slug === "attestation" && (
+                  <div>
+                    <img
+                      src={nisan}
+                      className="object-contain h-auto mx-auto rounded-lg"
+                      alt=""
+                    />
+                  </div>
+                )}
+                {/* {service.slug === "attestation" && (
                 <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                     <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                       AKKREDİTASİYA NİŞANI
@@ -390,10 +410,9 @@ export default function ServicePage() {
                     </div>
                 </div>
                 )}
-                
-            
+                 */}
 
-{service.slug === "attestation" && (
+                {service.slug === "attestation" && (
                   <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                     <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                       Akkredasiya Sahəsi
@@ -437,35 +456,7 @@ export default function ServicePage() {
                         </tbody>
                       </table>
                     </div>
-                    <div className="mt-6">
-                      <div className="max-w-xl mx-auto">
-                        {/* Title at the top */}
-                        <div className="text-center mb-3">
-                          <p className="text-gray-800 poppins dark:text-gray-200 font-medium">
-                            Attestat akkreditasiya sahəsi ilə birgə etibarlıdır.
-                          </p>
-                        </div>
-
-                        {/* Seal and signature with name on the right */}
-                        <div className="flex flex-col md:flex-row items-center justify-center">
-                          <div className="max-w-[300px]">
-                            <img
-                              src={attestationMark}
-                              alt="Attestat akkreditasiya sahəsi"
-                              className="w-full h-auto object-contain"
-                            />
-                          </div>
-                          <div className="md:ml-4 mt-2 md:mt-0 text-left md:self-end md:mb-8">
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              Emin Zeynalov
-                            </p>
-                            <p className="text-gray-700 dark:text-gray-300">
-                              Direktor
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 )}
 
@@ -484,10 +475,6 @@ export default function ServicePage() {
                     ))}
                   </div>
                 </div>
-
-  
-
-               
 
                 {/* Process */}
 
