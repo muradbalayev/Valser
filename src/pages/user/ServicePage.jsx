@@ -36,7 +36,7 @@ export default function ServicePage() {
       id: 1,
       title: translations[language]["service-1"],
       description: translations[language]["service-1-desc"],
-      fullDescription: translations[language]["service-1-full-desc"],
+      fullDescription: translations[language]["service-4-full-desc"],
       icon: <FaBuilding className="w-12 h-12" />,
       slug: "attestation",
       benefits: [
@@ -365,7 +365,7 @@ export default function ServicePage() {
                   </div>
                 </div>
 
-                {service.slug === "accreditiation-attestation" && (
+                {service.slug === "attestation" && (
                 <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                     <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                       AKKREDİTASİYA NİŞANI
@@ -391,60 +391,9 @@ export default function ServicePage() {
                 </div>
                 )}
                 
-                {service.slug === "accreditiation-attestation" && (
-                <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+            
 
-                    <div className="mt-6">
-                      <div className="max-w-xl mx-auto">
-                        {/* Title at the top */}
-                        <div className="text-center mb-3">
-                          <p className="text-gray-800 poppins dark:text-gray-200 font-medium">
-                            Attestat akkreditasiya sahəsi ilə birgə etibarlıdır.
-                          </p>
-                        </div>
-
-                        {/* Seal and signature with name on the right */}
-                        <div className="flex flex-col md:flex-row items-center justify-center">
-                          <div className="max-w-[300px]">
-                            <img
-                              src={attestationMark}
-                              alt="Attestat akkreditasiya sahəsi"
-                              className="w-full h-auto object-contain"
-                            />
-                          </div>
-                          <div className="md:ml-4 mt-2 md:mt-0 text-left md:self-end md:mb-8">
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              Emin Zeynalov
-                            </p>
-                            <p className="text-gray-700 dark:text-gray-300">
-                              Direktor
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                )}
-
-                <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
-                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
-                    {translations[language]["service-advantages"]}
-                  </h2>
-                  <div className="space-y-3">
-                    {service.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start">
-                        <FaCheckCircle className="text-red-800 mt-1 mr-2 flex-shrink-0" />
-                        <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
-                          {benefit}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-  
-
-                {service.slug === "attestation" && (
+{service.slug === "attestation" && (
                   <div className="pdf bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                     <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
                       Akkredasiya Sahəsi
@@ -519,6 +468,26 @@ export default function ServicePage() {
                     </div>
                   </div>
                 )}
+
+                <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+                  <h2 className="sm:text-xl text-base font-semibold mb-4 text-red-800 dark:text-red-800">
+                    {translations[language]["service-advantages"]}
+                  </h2>
+                  <div className="space-y-3">
+                    {service.benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-start">
+                        <FaCheckCircle className="text-red-800 mt-1 mr-2 flex-shrink-0" />
+                        <p className="sm:text-base text-sm text-gray-600 dark:text-gray-300">
+                          {benefit}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+  
+
+               
 
                 {/* Process */}
 

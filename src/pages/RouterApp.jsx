@@ -229,8 +229,6 @@ function AuthInitializer() {
           element={
             <div className={``}>
               <div className="bg-white dark:bg-[#0c0c0c] min-h-screen relative">
-             
-
                 {/* Main content */}
                 <div className="relative z-10">
                   <UserLayout />

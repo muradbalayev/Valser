@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { FaInstagram, FaFacebook, FaBook } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -91,13 +91,6 @@ export default function Navbar() {
       description: translations[language]["service-3-desc"],
       icon: <FaBalanceScale className="w-12 h-12" />,
       slug: "legal-services",
-    },
-    {
-      id: 4,
-      title: translations[language]["service-4"],
-      description: translations[language]["service-4-desc"],
-      icon: <FaBook className="w-12 h-12" />,
-      slug: "accreditiation-attestation",
     },
   ];
 

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { FaBalanceScale, FaBook, FaBuilding, FaFileContract } from 'react-icons/fa';
+import { FaBalanceScale, FaBuilding, FaFileContract } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import translations from "../../../translations.json";
 import { LanguageContext } from "@/context/languageContext";
@@ -32,13 +32,13 @@ export default function Services() {
       icon: <FaBalanceScale className="w-12 h-12" />,
       slug: "legal-services"
     },
-    {
-      id: 4,
-      title: translations[language]["service-4"],
-      description: translations[language]["service-4-desc"],
-      icon: <FaBook className="w-12 h-12" />,
-      slug: "accreditiation-attestation"
-    }
+    // {
+    //   id: 4,
+    //   title: translations[language]["service-4"],
+    //   description: translations[language]["service-4-desc"],
+    //   icon: <FaBook className="w-12 h-12" />,
+    //   slug: "accreditiation-attestation"
+    // }
   ];
 
   return (
