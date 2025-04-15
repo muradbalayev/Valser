@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -18,13 +18,11 @@ import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet";
 import { LanguageContext } from "@/context/languageContext";
 import translations from "../../translations.json";
-import attestationMark from "../../assets/images/attestationMark2.png";
-import azak from "../../assets/images/azak.png";
 import akkredasiyasahesi from "../../assets/images/akkredasiyasahesi.png";
 import nisan from "../../assets/images/nisan.png";
 export default function ServicePage() {
   const { serviceSlug } = useParams();
-  const [openSyllabus, setOpenSyllabus] = useState({});
+  // const [openSyllabus, setOpenSyllabus] = useState({});
   const { language } = useContext(LanguageContext);
 
   useEffect(() => {
@@ -478,7 +476,7 @@ export default function ServicePage() {
 
                 {/* Process */}
 
-                <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
+                {/* <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                   <h2 className="sm:text-xl text-base font-semibold mb-6 text-red-800 dark:text-red-800">
                     {translations[language]["service-process"]}
                   </h2>
@@ -547,7 +545,7 @@ export default function ServicePage() {
                       </motion.div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 <div className="bg-white dark:bg-black sm:p-6 p-4 rounded-lg shadow-sm">
                   <h2 className="sm:text-xl text-base font-semibold mb-6 text-red-800 dark:text-red-800">
